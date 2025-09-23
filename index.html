@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Ensures compatibility with Internet Explorer -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Makes page responsive on mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Browser title -->
+    <title>Zynex</title> 
+
+    <!-- External CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+</head>
+
+<body>
+    <!-- Sidebar navigation menu -->
+    <div class="sidebar">
+
+        <!-- Icon images taken from Font Awesome -->
+
+        <!-- Sidebar title -->
+        <h2><i class="fas fa-bolt"></i> Zynex</h2> 
+
+        <!-- Top menu -->
+        <div class="top-menu">
+            <!-- Overview section -->
+            <a href="#"><i class="fa-solid fa-circle-info"></i> Overview</a>
+
+            <!-- Calendar section -->
+            <a href="#"><i class="fas fa-calendar-alt"></i> Calendar</a>
+
+            <!-- Notifications section -->
+            <a href="#"><i class="fas fa-bell"></i> Notifications</a>
+
+            <!-- Devices section -->
+            <a href="#"><i class="fas fa-laptop"></i> Devices</a>
+
+            <!-- Privacy section -->
+            <a href="#"><i class="fas fa-shield-alt"></i> Privacy</a>
+
+            <!-- Logs section -->
+            <a href="#"><i class="fas fa-file-alt"></i> Logs</a>
+
+            <!-- Report section -->
+            <a href="#"><i class="fas fa-chart-bar"></i> Weekly Report</a>
+        </div>
+
+        <!-- Bottom menu (Settings pinned at bottom) -->
+        <div class="bottom-menu">
+
+            <!-- Zynex AI Section -->
+            <a href="#"><i class="fas fa-microchip"></i> Zynex AI</a>
+
+            <!-- Settings section -->
+            <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+
+            <!-- Account section -->
+            <a href="#"><i class="fa-solid fa-user"></i> Account</a>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-content">
+
+        <!-- Dashboard header with centered title and live info -->
+        <div class="dashboard-header">
+            <div></div> 
+
+            <!-- Centered dashboard title -->
+            <h1 class="dashboard-title">IoT Network Traffic Dashboard (Applied Differential Privacy)</h1>
+
+            <!-- Right side clock -->
+            <div class="dashboard-clock">
+                <!-- Digital clock container -->
+                <div class="digital-clock-container">
+                    <!-- Days of week display -->
+                    <div class="days-display">
+                        <span class="day">SUN</span>
+                        <span class="day">MON</span>
+                        <span class="day">TUE</span>
+                        <span class="day">WED</span>
+                        <span class="day">THU</span>
+                        <span class="day">FRI</span>
+                        <span class="day">SAT</span>
+                    </div>
+                    
+                    <!-- Time display -->
+                    <div class="time-display">
+                        <span id="hours">00</span>
+                        <span class="separator">:</span>
+                        <span id="minutes">00</span>
+                        <span class="separator">:</span>
+                        <span id="seconds">00</span>
+                        <span id="ampm">AM</span>
+                    </div>
+                    
+                    <!-- Date display -->
+                    <div class="date-display">
+                        <i class="far fa-calendar-alt"></i>
+                        <span id="month">JAN</span>
+                        <span id="day">01</span>
+                        <span id="year">2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                <!-- Heatmap section with color key -->
+        <div class="heatmap-container">
+            <h2 class="heatmap-title">Device Activity Heatmap (Severity Levels)</h2>
+            
+            <!-- Months row -->
+            <div class="months-row">
+                <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span>
+                <span>May</span><span>Jun</span><span>Jul</span><span>Aug</span>
+                <span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
+            </div>
+
+            <div class="heatmap-layout">
+                <!-- Days column -->
+                <div class="days-column">
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                    <span>Sun</span>
+                </div>
+
+            <!-- Heatmap content wrapper -->
+            <div class="heatmap-content">
+                <!-- Heatmap grid -->
+                <div class="heatmap-grid" id="heatmap"></div>
+                
+                <!-- Color key legend -->
+                <div class="color-key">
+                    <div class="color-key-item">
+                        <div class="color-box level-1"></div>
+                        <span class="key-label">Low</span>
+                    </div>
+                    <div class="color-key-item">
+                        <div class="color-box level-2"></div>
+                        <span class="key-label">Medium</span>
+                    </div>
+                    <div class="color-key-item">
+                        <div class="color-box level-3"></div>
+                        <span class="key-label">High</span>
+                    </div>
+                    <div class="color-key-item">
+                        <div class="color-box level-4"></div>
+                        <span class="key-label">Critical</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+  
+    <!-- External JS file -->
+    <script src="scripts.js"></script>
+         
+</body>
+</html>
