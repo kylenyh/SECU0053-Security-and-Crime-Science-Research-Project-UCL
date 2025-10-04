@@ -44,12 +44,20 @@ body {
 .sidebar a i { width: 20px; text-align: center; font-size: 16px; }
 .sidebar a:hover { background-color: aqua; color: black; }
 
+/* Active navigation link styling */
+.sidebar a.active {
+    background-color: aqua;
+    color: black;
+    font-weight: bold;
+}
+
 /* Main content */
 .main-content {
     flex: 1;
     padding: 20px;
     background-color: #0a0a0a;
     color: white;
+    overflow-y: auto;
 }
 
 /* Header */
@@ -59,6 +67,7 @@ body {
     align-items: center;
     padding-bottom: 10px;
     border-bottom: 2px solid darkcyan;
+    margin-bottom: 20px;
 }
 .dashboard-title {
     flex: 1;
@@ -99,102 +108,131 @@ body {
     gap: 8px;
 }
 
-/* Heatmap section */
+/* Page content sections - hidden by default */
+.page-content {
+    display: none;
+    animation: fadeIn 0.3s ease-in;
+}
+
+/* Active page is visible */
+.page-content.active {
+    display: block;
+}
+
+/* Fade in animation for page transitions */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Content section styling for blank pages */
+.content-section {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 30px;
+    border: 1px solid white;
+    min-height: 400px;
+}
+
+.content-section h2 {
+    margin-top: 0;
+    color: lightskyblue;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.content-section p {
+    color: #ccc;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Heatmap section - centered and smaller */
 .heatmap-container {
-    margin-top: 20px;
     background-color: black;
     border-radius: 8px;
-    padding: 10px;
-    width: 680px; /* Increased width to accommodate better alignment */
+    padding: 20px;
+    width: 1100px;
     border: 1px solid white;
     box-sizing: border-box;
+    margin: 0 auto;
 }
 
 .heatmap-title {
-    font-size: 15px;
+    font-size: 24px;
     text-align: center;
-    margin: 0 0 15px 0;
+    margin: 0 0 20px 0;
     color: white;
     display: block;
 }
 
-/* Months row - aligned with heatmap grid */
+/* Months row */
 .months-row {
     display: flex;
     justify-content: space-between;
-    margin-left: 40px; /* Align with heatmap start position */
-    margin-bottom: 5px;
-    width: 520px; /* Match heatmap grid width */
-    font-size: 10px;
+    margin-left: 60px;
+    margin-bottom: 10px;
+    width: 850px;
+    font-size: 14px;
     color: white;
 }
 
-/* Updated heatmap layout for better positioning */
+/* Heatmap layout - centered */
 .heatmap-layout {
     display: flex;
     align-items: flex-start;
-    gap: 5px; /* Reduced gap between days and heatmap */
-    position: relative; /* Enable absolute positioning for day labels */
+    gap: 10px;
+    position: relative;
+    justify-content: center;
 }
 
-/* Days column with specific row positioning */
+/* Days column */
 .days-column {
     display: flex;
     flex-direction: column;
-    width: 30px;
-    height: 85px; /* Match heatmap grid height */
-    position: relative; /* Container for absolutely positioned day labels */
-    font-size: 10px;
+    width: 45px;
+    height: 140px;
+    position: relative;
+    font-size: 14px;
     color: white;
+    justify-content: space-around;
 }
 
-/* Individual day label positioning */
-.day-label {
-    position: absolute;
-    right: 5px; /* Position close to heatmap edge */
-    width: 25px;
-    text-align: right;
-}
-
-/* Mon positioned at row 2 (index 1) */
-.day-row-2 {
-    top: calc(10px + (12px * 1)); /* Base offset + (cell height + gap) * row index */
-}
-
-/* Wed positioned at row 4 (index 3) */
-.day-row-4 {
-    top: calc(10px + (12px * 3)); /* Base offset + (cell height + gap) * row index */
-}
-
-/* Fri positioned at row 6 (index 5) */
-.day-row-6 {
-    top: calc(10px + (12px * 5)); /* Base offset + (cell height + gap) * row index */
-}
-
-/* Heatmap content wrapper for grid and color key */
+/* Heatmap content wrapper */
 .heatmap-content {
     display: flex;
     align-items: flex-start;
-    gap: 20px;
-    width: 100%;
+    gap: 30px;
+    width: auto;
 }
 
-/* Updated heatmap grid for proper weekly layout */
+/* Heatmap grid */
 .heatmap-grid {
     display: grid;
-    grid-template-columns: repeat(53, 8px); /* 53 weeks with 8px cells */
-    grid-template-rows: repeat(7, 10px); /* 7 days with 10px rows */
-    grid-gap: 2px;
-    justify-content: start;
-    width: 450px;
+    grid-template-columns: repeat(53, 13px);
+    grid-template-rows: repeat(7, 16px);
+    grid-gap: 3px;
+    grid-auto-flow: column;
 }
 
 .heatmap-cell {
-    width: 8px;
-    height: 8px;
+    width: 13px;
+    height: 13px;
     border-radius: 2px;
     background-color: #161b22;
     transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.heatmap-cell:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
 }
 
 /* Heatmap color levels */
@@ -203,33 +241,191 @@ body {
 .level-3 { background-color: red; }
 .level-4 { background-color: darkred; }
 
-/* Color key styling - pushed further right */
+/* Color key styling */
 .color-key {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-left: 80px; /* Increased margin to push color key further right */
-    padding-top: 6px;
+    gap: 12px;
+    margin-left: 20px;
+    padding-top: 10px;
 }
 
-/* Individual color key items */
 .color-key-item {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
-/* Color boxes in the key */
 .color-box {
-    width: 12px;
-    height: 12px;
+    width: 18px;
+    height: 18px;
     border-radius: 2px;
     border: 1px solid #333;
 }
 
-/* Key labels */
 .key-label {
-    font-size: 10px;
+    font-size: 14px;
     color: white;
     font-weight: normal;
+}
+
+/* Charts Section */
+.charts-section {
+    /* Container for all charts */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+    padding: 0 20px;
+}
+
+.chart-container {
+    /* Individual chart wrapper - matching heatmap style */
+    background-color: black; /* Changed from #1a1a1a to black */
+    border-radius: 8px;
+    padding: 25px;
+    border: 1px solid white; /* Changed from #333 to white */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.chart-title {
+    /* Chart heading style */
+    color: white; /* Changed from lightskyblue to white */
+    font-size: 18px;
+    text-align: center;
+    margin: 0 0 20px 0;
+    font-weight: bold;
+}
+
+/* Bar Chart Styling */
+.bar-chart {
+    /* Bar chart container */
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    height: 200px;
+    padding: 10px;
+    border-bottom: 2px solid #333;
+    gap: 10px;
+    background-color: black; /* Added black background */
+}
+
+.bar {
+    /* Individual bar element */
+    width: 50px;
+    background: linear-gradient(to top, #FF6B6B, #FFE66D);
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    transition: all 0.3s ease;
+    animation: growBar 1s ease-out;
+}
+
+.bar-value {
+    /* Value label on top of bar */
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+@keyframes growBar {
+    /* Bar animation from bottom */
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+}
+
+.chart-labels {
+    /* X-axis labels for bar chart */
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #ccc;
+}
+
+/* Line Chart Styling */
+.line-chart {
+    /* Line chart SVG container */
+    background-color: black; /* Changed from #0a0a0a to black */
+    border-radius: 8px;
+    padding: 10px;
+    height: 300px;
+}
+
+#latency-line, #throughput-line {
+    /* Animated line drawing effect */
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawLine 2s ease-out forwards;
+}
+
+@keyframes drawLine {
+    /* Line drawing animation */
+    to { stroke-dashoffset: 0; }
+}
+
+/* Pie Chart Styling */
+.pie-chart-wrapper {
+    /* Pie chart with legend layout */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: black; /* Added black background */
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.pie-chart {
+    /* SVG pie chart sizing */
+    flex-shrink: 0;
+}
+
+.pie-slice {
+    /* Pie slice hover effect */
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.pie-slice:hover {
+    opacity: 0.8;
+}
+
+.pie-legend {
+    /* Legend for pie chart */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.legend-item {
+    /* Individual legend entry */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.legend-color {
+    /* Color square in legend */
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+}
+
+.legend-text {
+    /* Legend label text */
+    color: #ccc;
+    font-size: 13px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+    .charts-section {
+        /* Stack charts on smaller screens */
+        grid-template-columns: 1fr;
+    }
 }
