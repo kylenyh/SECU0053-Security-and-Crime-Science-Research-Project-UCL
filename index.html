@@ -2,94 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zynex</title> 
+    <title>Zynex Dashboard</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
-    <!-- Sidebar navigation menu -->
+    <!-- Sidebar -->
     <div class="sidebar">
-        <!-- Sidebar title -->
-        <h2><i class="fas fa-bolt"></i> Zynex</h2> 
-
-        <!-- Top menu with data-page and nav-link class -->
+        <h2><i class="fas fa-bolt"></i> Zynex</h2>
+        
         <div class="top-menu">
-            <!-- Overview section -->
-            <a href="#" class="nav-link" data-page="overview">
+            <a href="#" class="nav-link active" data-page="overview">
                 <i class="fa-solid fa-circle-info"></i> Overview
             </a>
-
-            <!-- Home section - active by default -->
-            <a href="#" class="nav-link active" data-page="home">
+            <a href="#" class="nav-link" data-page="features">
+                <i class="fa-solid fa-table-cells-large"></i> Features
+            </a>
+            <a href="#" class="nav-link" data-page="home">
                 <i class="fa-solid fa-house-user"></i> Home
             </a>
-
-            <!-- Calendar section -->
             <a href="#" class="nav-link" data-page="calendar">
                 <i class="fas fa-calendar-alt"></i> Calendar
             </a>
-
-            <!-- Notifications section -->
             <a href="#" class="nav-link" data-page="notifications">
-                <i class="fas fa-bell"></i> Notifications
+                <i class="fa-regular fa-bell"></i> Notifications
             </a>
-
-            <!-- Devices section -->
-            <a href="#" class="nav-link" data-page="devices">
-                <i class="fas fa-laptop"></i> Devices
+            <a href="#" class="nav-link" data-page="consent">
+                <i class="fas fa-file-signature"></i> Consent Form
             </a>
-
-            <!-- Privacy section -->
             <a href="#" class="nav-link" data-page="privacy">
                 <i class="fas fa-shield-alt"></i> Privacy
             </a>
-
-            <!-- Logs section -->
+            <a href="#" class="nav-link" data-page="report">
+                <i class="fa-solid fa-clipboard-list"></i> Privacy Form
+            </a>
             <a href="#" class="nav-link" data-page="logs">
                 <i class="fas fa-file-alt"></i> Logs
             </a>
-
-            <!-- Report section -->
-            <a href="#" class="nav-link" data-page="report">
-                <i class="fas fa-chart-bar"></i> Weekly Report
-            </a>
         </div>
 
-        <!-- Bottom menu -->
         <div class="bottom-menu">
-            <!-- Zynex AI Section -->
-            <a href="#" class="nav-link" data-page="ai">
-                <i class="fas fa-microchip"></i> Zynex AI
+            <a href="#" class="nav-link" data-page="chatbot">
+                <i class="fa-solid fa-circle-nodes"></i> Zynex AI
             </a>
-
-            <!-- Settings section -->
-            <a href="#" class="nav-link" data-page="settings">
-                <i class="fa-solid fa-gear"></i> Settings
-            </a>
-
-            <!-- Account section -->
             <a href="#" class="nav-link" data-page="account">
-                <i class="fa-solid fa-user"></i> Account
+                <i class="fa-solid fa-user"></i> <span id="sidebar-user-id">U-1234</span>
             </a>
         </div>
     </div>
 
-    <!-- Main content -->
+    <!-- Main Content -->
     <div class="main-content">
-        <!-- Dashboard header -->
         <div class="dashboard-header">
-            <div></div> 
-
-            <!-- Centered dashboard title -->
-            <h1 class="dashboard-title">IoT Network Traffic Dashboard (Applied Differential Privacy)</h1>
-
-            <!-- Right side clock -->
+            <h1 class="dashboard-title">Privacy Utility Tradeoff Dashboard (Applied Differential Privacy)</h1>
             <div class="dashboard-clock">
                 <div class="digital-clock-container">
-                    <!-- Days of week display -->
                     <div class="days-display">
                         <span class="day">SUN</span>
                         <span class="day">MON</span>
@@ -99,8 +67,6 @@
                         <span class="day">FRI</span>
                         <span class="day">SAT</span>
                     </div>
-                    
-                    <!-- Time display -->
                     <div class="time-display">
                         <span id="hours">00</span>
                         <span class="separator">:</span>
@@ -109,8 +75,6 @@
                         <span id="seconds">00</span>
                         <span id="ampm">AM</span>
                     </div>
-                    
-                    <!-- Date display -->
                     <div class="date-display">
                         <i class="far fa-calendar-alt"></i>
                         <span id="month">JAN</span>
@@ -121,19 +85,284 @@
             </div>
         </div>
 
-        <!-- Overview page -->
-        <div class="page-content" id="overview-page">
-            <div class="content-section">
-                <h2>Overview</h2>
-                <p>System overview and analytics dashboard.</p>
+        <!-- Overview Page -->
+        <div class="page-content active" id="overview-page">
+            <div class="overview-container">
+                <!-- Research Study Header -->
+                <div class="research-study-header">
+                    <h1 class="research-title">Exploring User Decisions in Privacy–Utility Trade-offs with the Zynex Dashboard</h1>
+                    <p class="research-subtitle">Security and Crime Science Research Project (SECU0053)</p>
+                    <div class="research-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-university"></i> UCL 
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-user"></i> Kyle Ng
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-calendar"></i> October 2025
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Research Question Section -->
+                <div class="research-question-section">
+                    <div class="section-header">
+                        <i class="fa-solid fa-circle-question"></i>
+                        <h2>Research Question</h2>
+                    </div>
+                    <div class="question-box">
+                        <h3 class="main-question">How do users choose the epsilon parameter when confronted with explicit privacy-utility trade-offs?</h3>
+                        <p class="question-description">This study examines how individuals make decisions when adjusting the privacy budget (ε) through the Zynex dashboard, uncovering behavioural patterns and biases in privacy choices while examining how different negative consequences—such as slower performance, increased CAPTCHA frequency, or reduced ad relevance—influence their decisions.</p>
+                    </div>
+                </div>
+
+                <!-- Research Objectives Section -->
+                <div class="research-objectives-section">
+                    <div class="section-header">
+                        <i class="fa-solid fa-crosshairs"></i>
+                        <h2>Research Objectives</h2>
+                    </div>
+                    <div class="objectives-grid">
+                        <div class="objective-card">
+                            <div class="objective-label">1</div>
+                            <h3>First Objective</h3>
+                            <p>To <strong>examine users’ decision-making</strong> when adjusting the privacy budget (ε) across different privacy levels.</p>
+                        </div>
+                        <div class="objective-card">
+                            <div class="objective-label">2</div>
+                            <h3>Second Objective</h3>
+                            <p>To <strong>evaluate how negative usability</strong> impacts such as slower performance, frequent CAPTCHAs, or fewer personalised ads influence privacy–utility trade-offs.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Research Method Section -->
+                <div class="research-method-section">
+                    <div class="section-header">
+                        <i class="fas fa-microscope"></i>
+                        <h2>Research Method</h2>
+                    </div>
+                    <p class="method-intro">This dissertation adopts a <strong>user study approach</strong> using the Zynex interactive web-based dashboard. The platform applies the concept of the privacy budget (ε) from differential privacy, providing users with direct control to balance privacy protection and system performance.</p>
+                    
+                    <div class="method-grid">
+                        <div class="method-card">
+                            <i class="fas fa-hand-pointer"></i>
+                            <h3>User Interaction</h3>
+                            <p>Participants adjust the privacy budget (ε) while observing real-time changes in performance indicators.</p>
+                        </div>
+                        <div class="method-card">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Performance Metrics</h3>
+                            <p>System tracks latency, CAPTCHA frequency, ad relevance, and network accuracy based on ε selections.</p>
+                        </div>
+                        <div class="method-card">
+                            <i class="fas fa-database"></i>
+                            <h3>Data Collection</h3>
+                            <p>Logs ε selections, decision time, and trade-off frequency for quantitative and qualitative analysis.</p>
+                        </div>
+                    </div>
+
+                    <div class="methodological-contribution">
+                        <i class="fas fa-info-circle"></i>
+                        <div>
+                            <h4>Methodological Contribution</h4>
+                            <p>The Zynex platform offers a <strong style="color: cyan;">key methodological contribution</strong> by enabling interactive, real-time observation of user decision-making within an operational model of differential privacy, unlike traditional static surveys or hypothetical scenarios.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Privacy Threat Model Section -->
+                <div class="privacy-threat-section">
+                    <div class="section-header">
+                        <i class="fas fa-user-shield"></i>
+                        <h2>Privacy Threat Model (Hypothethical)</h2>
+                    </div>
+                    
+                    <div class="threat-intro">
+                        <h3>Simplified Threat Scenario</h3>
+                        <p>The study models a <strong style="color: cyan;">simplified privacy threat model</strong> to evaluate how participants balance perceived privacy risks against system functionality and convenience.</p>
+                    </div>
+
+                    <div class="threat-grid">
+                        <div class="threat-card">
+                            <div class="threat-icon adversary">
+                                <i class="fa-brands fa-meta"></i>
+                            </div>
+                            <h3>Who is the Adversary?</h3>
+                            <p> <strong>Meta (Facebook’s parent company)</strong>, a large-scale data aggregator that collects and analyses user information to personalise ads and optimise engagement.</p>
+                        </div>
+                        <div class="threat-card">
+                            <div class="threat-icon attack">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+                            <h3>What is the Attack Vector?</h3>
+                            <p> <strong>Passive profiling</strong> through metadata analysis, where user behaviour (such as browsing patterns or engagement data) is monitored without explicit consent.</p>
+                        </div>
+                    </div>
+
+                    <div class="model-linkage">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <div>
+                            <h4>Connection to Study</h4>
+                            <p>The privacy threat model <strong style="color: lightgreen;">aligns with the study’s focus</strong> by simulating a realistic scenario where users must balance privacy and system performance. Using Meta as the adversary and passive metadata profiling as the attack vector reflects real-world data collection practices, allowing the study to examine how individuals adjust their privacy preferences in response to perceived risks and usability changes.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
+
+        <!-- Features Page -->
+        <div class="page-content" id="features-page">
+            <div class="features-page-container">
+                <!-- Features Header Box -->
+                <div class="features-header-box">
+                    <h2 class="features-page-title">
+                        <i class="fa-solid fa-table-cells-large"></i> Dashboard Features
+                    </h2>
+                    <p class="features-subtitle">Shows a list of key features in the website</p>
+                </div>
+
+                <!-- Large White Container for All Features -->
+                <div class="features-white-container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-house-user"></i>
+                        </div>
+                        <h3 class="feature-title">Home</h3>
+                        <p class="feature-description">Contains an interactive heatmap visualization showing user activity patterns, epsilon selection frequency chart and performance metrics analysis.</p>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Heatmap</span>
+                            <span class="feature-tag">Charts</span>
+                            <span class="feature-tag">Data Analysis</span>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Calendar</h3>
+                        <p class="feature-description">Shows years, months and days from 2025-2030 with a drop down function, tracks day and date in real-time.</p>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Days</span>
+                            <span class="feature-tag">Months</span>
+                            <span class="feature-tag">Years</span>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-regular fa-bell"></i>
+                        </div>
+                        <h3 class="feature-title">Notifications</h3>
+                        <p class="feature-description">Limited to Kyle and Ingolf, tracks form submissions, user activity and system events with read/unread status.</p>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Real-Time</span>
+                            <span class="feature-tag">Restricted Access</span>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-signature"></i>
+                        </div>
+                        <h3 class="feature-title">Consent Form</h3>
+                        <p class="feature-description">Explains study purpose, procedures, participant rights and data handling with interactive checkbox validation.</p>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Ethics</span>
+                            <span class="feature-tag">Compliance</span>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Privacy</h3>
+                        <p class="feature-description">Provides an interactive epsilon slider (0.1 - 5.0) and shows real-time privacy utility trade-offs.</p>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Privacy</span>
+                            <span class="feature-tag">Performance</span>
+                            <span class="feature-tag">Interactive</span>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                        </div>
+                        <h3 class="feature-title">Privacy Form</h3>
+                        <p class="feature-description">Post questionnaire allowing particpants to answer questions related to dashboard experience, privacy utility interaction and privacy knowledge.</p>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Analytics</span>
+                            <span class="feature-tag">Insights</span>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Logs</h3>
+                        <p class="feature-description">Limited to Kyle and Ingolf, stores session duration, date, epsilon changes, user ID and downloadable form data.</p>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Real-Time</span>
+                            <span class="feature-tag">Restricted Access</span>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-circle-nodes"></i>
+                        </div>
+                        <h3 class="feature-title">Zynex AI</h3>
+                        <p class="feature-description">An adaptive, conversational, intelligent LLM designed to understand context, generate human-like responses and learn from user interactions.</p>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Automated</span>
+                            <span class="feature-tag">Intelligent</span>
+                            <span class="feature-tag">Responsive</span>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <h3 class="feature-title">Account</h3>
+                        <p class="feature-description">Shows participation status, session duration, questionnaire completions and privacy adjustment score.</p>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Anonymity</span>
+                            <span class="feature-tag">Participation Statistics</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
         <!-- Home page with heatmap and charts - active by default -->
-        <div class="page-content active" id="home-page">
+        <div class="page-content" id="home-page">
             <!-- Heatmap Container -->
             <div class="heatmap-container">
                 <h2 class="heatmap-title">User Interaction Heatmap (Volume)</h2>
+
+                <!-- Year Selector Bar -->
+                <div class="year-selector-bar">
+                    <button class="year-option" data-year="2025">2025</button>
+                    <button class="year-option" data-year="2026">2026</button>
+                    <button class="year-option" data-year="2027">2027</button>
+                    <button class="year-option" data-year="2028">2028</button>
+                    <button class="year-option" data-year="2029">2029</button>
+                    <button class="year-option" data-year="2030">2030</button>
+                    <button class="year-option" data-year="2031">2031</button>
+                    <button class="year-option" data-year="2032">2032</button>
+                    <button class="year-option" data-year="2033">2033</button>
+                    <button class="year-option" data-year="2034">2034</button>
+                    <button class="year-option" data-year="2035">2035</button>
+                </div>
                 
                 <!-- Months row -->
                 <div class="months-row">
@@ -160,22 +389,23 @@
                         <div class="heatmap-grid" id="heatmap"></div>
                         
                         <!-- Color key legend -->
-                        <div class="color-key">
-                            <div class="color-key-item">
-                                <div class="color-box level-1"></div>
-                                <span class="key-label">1 - 25</span>
+                        <div class="heatmap-legend">
+                            <div class="legend-title">Color Key</div>
+                            <div class="legend-item">
+                                <div class="legend-box level-1"></div>
+                                <span>1 - 10</span>
                             </div>
-                            <div class="color-key-item">
-                                <div class="color-box level-2"></div>
-                                <span class="key-label">26 - 50</span>
+                            <div class="legend-item">
+                                <div class="legend-box level-2"></div>
+                                <span>11 - 25</span>
                             </div>
-                            <div class="color-key-item">
-                                <div class="color-box level-3"></div>
-                                <span class="key-label">51 - 75</span>
+                            <div class="legend-item">
+                                <div class="legend-box level-3"></div>
+                                <span>26 - 40</span>
                             </div>
-                            <div class="color-key-item">
-                                <div class="color-box level-4"></div>
-                                <span class="key-label">76 - 100</span>
+                            <div class="legend-item">
+                                <div class="legend-box level-4"></div>
+                                <span>41 - 50</span>
                             </div>
                         </div>
                     </div>
@@ -259,78 +489,676 @@
 
         <!-- Privacy page -->
         <div class="page-content" id="privacy-page">
-            <div class="content-section">
-                <h2>Privacy Settings</h2>
-                <p>Configure your privacy preferences and differential privacy settings here.</p>
+            <div class="privacy-layout">
+                <!-- Privacy Budget Control Card -->
+                <div class="privacy-card">
+                    <h3 class="privacy-card-title">
+                        <i class="fas fa-sliders-h"></i> Privacy Budget Control
+                    </h3>
+                    
+                    <!-- Current Privacy Level Display -->
+                    <div class="privacy-level-display">
+                        <div class="privacy-level-value" id="epsilon-value">0.1</div>
+                        <div class="privacy-level-label">Current Privacy Level</div>
+                    </div>
+
+                    <!-- Privacy Slider -->
+                    <div class="privacy-slider-container">
+                        <input type="range" 
+                               id="privacy-slider" 
+                               class="privacy-slider" 
+                               min="0.0" 
+                               max="5.0" 
+                               step="0.1" 
+                               value="0.1">
+                        <div class="slider-labels">
+                            <span>0.0</span>
+                            <span>5.0</span>
+                        </div>
+                    </div>
+
+                    <!-- Privacy Recommendation -->
+                    <div class="privacy-recommendation">
+                        <i class="fas fa-balance-scale"></i>
+                        <div>
+                            <div class="recommendation-title" id="recommendation-title">Balanced Privacy</div>
+                            <div class="recommendation-text" id="recommendation-text">Good balance between privacy and utility</div>
+                        </div>
+                    </div>
+
+                    <!-- Session Info -->
+                    <div class="session-info">
+                        <div class="session-info-item">
+                            <span class="session-label">User ID:</span>
+                            <span class="session-value" id="session-id">U-1234</span>
+                        </div>
+                        <div class="session-info-item">
+                            <span class="session-label">Settings Changed:</span>
+                            <span class="session-value" id="settings-changed">0 times</span>
+                        </div>
+                        <div class="session-info-item">
+                            <span class="session-label">Last Updated:</span>
+                            <span class="session-value" id="last-updated">Not set</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Privacy-Utility Trade-offs Card -->
+                <div class="privacy-card">
+                    <h3 class="privacy-card-title">
+                        <i class="fas fa-balance-scale"></i> Privacy-Utility Trade-offs
+                    </h3>
+
+                    <!-- Trade-off Metrics -->
+                    <div class="tradeoff-metric">
+                        <div class="metric-label">Data Accuracy</div>
+                        <div class="metric-bar-container">
+                            <div class="metric-bar accuracy-bar" id="accuracy-bar" style="width: 59%;">
+                                <span class="metric-percentage" id="accuracy-value">59%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tradeoff-metric">
+                        <div class="metric-label">Network Latency</div>
+                        <div class="metric-bar-container">
+                            <div class="metric-bar latency-bar" id="latency-bar" style="width: 70%;">
+                                <span class="metric-percentage" id="latency-value">70ms</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tradeoff-metric">
+                        <div class="metric-label">CAPTCHA Frequency</div>
+                        <div class="metric-bar-container">
+                            <div class="metric-bar throughput-bar" id="throughput-bar" style="width: 51%;">
+                                <span class="metric-percentage" id="throughput-value">51%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Real-time Performance Impact Card -->
+                <div class="privacy-card">
+                    <h3 class="privacy-card-title">
+                        <i class="fas fa-tachometer-alt"></i> Real-time Performance Impact
+                    </h3>
+
+                    <!-- Performance Metrics Grid -->
+                    <div class="performance-grid">
+                        <div class="performance-metric">
+                            <div class="performance-value" id="response-time">170</div>
+                            <div class="performance-label">Response Time (ms)</div>
+                        </div>
+                        <div class="performance-metric">
+                            <div class="performance-value" id="noise-level">20</div>
+                            <div class="performance-label">Noise Level (%)</div>
+                        </div>
+                        <div class="performance-metric">
+                            <div class="performance-value" id="data-quality">67</div>
+                            <div class="performance-label">Data Quality (%)</div>
+                        </div>
+                        <div class="performance-metric">
+                            <div class="performance-value" id="privacy-score">8</div>
+                            <div class="performance-label">Privacy Score (1-10)</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Calendar page -->
         <div class="page-content" id="calendar-page">
-            <div class="content-section">
-                <h2>Calendar</h2>
-                <p>View and manage your scheduled events.</p>
+            <div class="calendar-container">
+                <!-- Date Selector -->
+                <div class="date-selector" id="date-selector">
+                    <span class="date-selector-text" id="date-selector-text">Thursday, October 10</span>
+                </div>
+
+                <!-- Calendar Header -->
+                <div class="calendar-header">
+                    <h2 class="calendar-current-date" id="current-date">October, 2025</h2>
+                    <div class="calendar-nav">
+                        <button class="calendar-nav-btn" id="prev-month" title="Previous Month">
+                            <i class="fas fa-chevron-up"></i>
+                        </button>
+                        <button class="calendar-nav-btn" id="next-month" title="Next Month">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Month/Year Picker Popup -->
+                <div class="month-year-picker" id="month-year-picker">
+                    <div class="picker-header">
+                        <button class="picker-nav-btn" id="prev-year">
+                            <i class="fas fa-chevron-up"></i>
+                        </button>
+                        <span class="picker-year" id="picker-year">2025</span>
+                        <button class="picker-nav-btn" id="next-year">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="months-grid" id="months-grid">
+                        <!-- Months will be generated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="calendar-weekdays">
+                    <div class="weekday">S</div>
+                    <div class="weekday">M</div>
+                    <div class="weekday">T</div>
+                    <div class="weekday">W</div>
+                    <div class="weekday">T</div>
+                    <div class="weekday">F</div>
+                    <div class="weekday">S</div>
+                </div>
+                
+                <div class="calendar-days" id="calendar-days">
+                    <!-- Days will be generated by JavaScript -->
+                </div>
             </div>
         </div>
 
         <!-- Notifications page -->
         <div class="page-content" id="notifications-page">
-            <div class="content-section">
-                <h2>Notifications</h2>
-                <p>View all your system notifications.</p>
+            <div class="notifications-container">
+                <!-- Notifications Header -->
+                <div class="notifications-header">
+                    <div class="notifications-title-section">
+                        <div class="notification-bell-badge">
+                            <i class="fas fa-bell"></i>
+                            <span class="bell-count" id="bell-count">108</span>
+                        </div>
+                        <h2 class="notifications-main-title">Notifications Centre</h2>
+                    </div>
+                    <p class="notifications-subtitle">Tracks all activity and system events</p>
+                </div>
+
+                <!-- Filter Buttons -->
+                <div class="notifications-filters">
+                    <button class="filter-btn active" data-filter="all">All (<span id="all-count">108</span>)</button>
+                    <button class="filter-btn mark-read-btn">
+                        <i class="fas fa-envelope"></i> Mark All As Read
+                    </button>
+                    <button class="filter-btn mark-unread-btn">
+                        <i class="fas fa-envelope-open"></i> Mark All As Unread
+                    </button>
+                    <button class="filter-btn clear-btn">
+                        <i class="fas fa-trash"></i> Clear All
+                    </button>
+                </div>
+
+                <!-- Notifications List -->
+                <div class="notifications-list" id="notifications-list">
+                    <!-- Notifications will be generated by JavaScript -->
+                </div>
             </div>
         </div>
 
-        <!-- Devices page -->
-        <div class="page-content" id="devices-page">
-            <div class="content-section">
-                <h2>Connected Devices</h2>
-                <p>Manage your IoT devices.</p>
+        <!-- Consent Form page -->
+        <div class="page-content" id="consent-page">
+            <div class="consent-container">
+            <!-- Header -->
+            <div class="consent-header">
+            <i class="fa-solid fa-list-check"></i>
+                <h1>Study Consent Form</h1>
+            <p>Please review the information below and provide your informed consent to participate in this research study.</p>
+        </div>
+
+        <!-- Study Purpose Section -->
+        <div class="consent-section">
+            <div class="section-title">
+                <i class="fa-solid fa-book"></i>
+                <span>Study Purpose</span>
+            </div>
+            <div class="section-content">
+                  <p>
+                    The purpose of this study is to explore how individuals make real-time decisions 
+                    when confronted with explicit <strong style="color: cyan;">privacy–utility trade-offs</strong>. 
+                    By using the Zynex dashboard, participants will be given the opportunity to adjust 
+                    their privacy preferences (ε values from differential privacy), while directly 
+                    experiencing consequences such as changes in latency, CAPTCHA frequency and ad relevance.
+                    This setup will help uncover how users balance privacy protection against system usability 
+                    and performance.
+                </p>
             </div>
         </div>
+
+        <!-- Procedures & Timeline Section -->
+        <div class="consent-section">
+            <div class="section-title">
+                <i class="fa-solid fa-users"></i>
+                <span>Participant Activities</span>
+            </div>
+            <div class="section-content">
+                <p>If you agree to participate in this study, you will be asked/able to:</p>
+                <ul class="bullet-list">
+                    <li>
+                        <i class="fas fa-circle"></i>
+                        <span>Interact with the Zynex dashboard and adjust privacy settings using the epsilon slider</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-circle"></i>
+                        <span>Complete a participation consent form and a post questionnaire on your dashboard experience and privacy preferences</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-circle"></i>
+                        <span>Navigate through different sections of the website (excluding the logs and notifications sections)</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-circle"></i>
+                        <span>Interact with the Zynex AI chatbot to experience a general-purpose conversational model</span>
+                    </li>
+                </ul>
+                <div class="duration-badge">
+                    <i class="fas fa-clock"></i>
+                    <span>There is no fixed time limit — users may explore and interact with the dashboard for as long as they wish</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Your Rights Section -->
+        <div class="consent-section">
+            <div class="section-title">
+                <i class="fas fa-user-shield"></i>
+                <span>Your Rights</span>
+            </div>
+            <div class="section-content">
+                <div class="rights-highlight">
+                    <h4>Right to Withdraw:</h4>
+                    <p>You have the right to withdraw from this study at any time without penalty or consequence. Simply close the browser or contact the student/supervisor using the information provided below.</p>
+                </div>
+
+                <div class="contact-info">
+                    <h4>Student/Supervisor Contact:</h4>
+                    <div class="contact-item">
+                        <strong>Student/Supervisor Email:</strong>
+                        <span>zctzkng@ucl.ac.uk, i.becker@ucl.ac.uk</span>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Department/Faculty:</strong>
+                        <span>Department of Security and Crime Science, Faculty of Engineering Sciences</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Handling & Privacy Section -->
+        <div class="consent-section">
+            <div class="section-title">
+                <i class="fas fa-lock"></i>
+                <span>Data Handling & Privacy</span>
+            </div>
+            <div class="section-content">
+                <p>Your privacy and data security are our top priorities. Here's how we handle your data:</p>
+                <ul class="bullet-list">
+                    <li>
+                        <i class="fas fa-circle"></i>
+                        <span><strong>Anonymization:</strong> All collected data will be anonymized and no personally identifiable information will be stored</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-circle"></i>
+                        <span><strong>Secure Storage:</strong> The collected data will be stored in the logs section with restricted access limited to the student and supervisor</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-circle"></i>
+                        <span><strong>Usage Limitations:</strong> The collected data will only be used for the thesis writeup and data analysis</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-circle"></i>
+                        <span><strong>Data Retention:</strong> The data collected will be kept until the end of the course, then securely deleted</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-circle"></i>
+                        <span><strong>Third-Party Sharing:</strong> Your data will never be sold or shared with third parties for commercial purposes</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Informed Consent Agreement Section -->
+        <div class="agreement-section">
+            <div class="agreement-header">
+                <h2>Informed Consent Agreement</h2>
+                <p>Please confirm your understanding and agreement by checking all boxes below:</p>
+            </div>
+
+            <div class="checkbox-item" onclick="toggleCheckbox(1)">
+                <input type="checkbox" id="check1">
+                <label for="check1">I have read and understood the purpose of this research study</label>
+            </div>
+
+            <div class="checkbox-item" onclick="toggleCheckbox(2)">
+                <input type="checkbox" id="check2">
+                <label for="check2">I understand the procedures and what will be required of me during the research study</label>
+            </div>
+
+            <div class="checkbox-item" onclick="toggleCheckbox(3)">
+                <input type="checkbox" id="check3">
+                <label for="check3">I understand that I can withdraw from the research study at any time without penalty</label>
+            </div>
+
+            <div class="checkbox-item" onclick="toggleCheckbox(4)">
+                <input type="checkbox" id="check4">
+                <label for="check4">I understand how my data will be collected, stored and used for this research study</label>
+            </div>
+
+            <div class="checkbox-item" onclick="toggleCheckbox(5)">
+                <input type="checkbox" id="check5">
+                <label for="check5">My age is at least 18 years or above and I voluntarily agree to participate in this research study</label>
+            </div>
+
+            <!-- Progress Indicator -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text" id="progressText">0 of 5 items confirmed</div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="button-container">
+                <button class="btn btn-decline" onclick="declineConsent()">Decline & Exit</button>
+                <button class="btn btn-continue" id="continueBtn" disabled>Continue to Dashboard</button>
+            </div>
+
+            <!-- Footer Note -->
+            <div class="footer-note">
+                <i class="fas fa-info-circle"></i>
+                <span>You can withdraw your consent at any time by contacting the student/supervisor or closing the browser</span>
+            </div>
+        </div>
+    </div>
+</div>
 
         <!-- Logs page -->
         <div class="page-content" id="logs-page">
-            <div class="content-section">
-                <h2>System Logs</h2>
-                <p>View system activity logs.</p>
+            <!-- Session Logs Header -->
+            <div class="session-logs-header">
+                <div class="session-logs-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="session-logs-text">
+                    <h2>Session Logs</h2>
+                    <p>View participant session data and activity history</p>
+                </div>
+            </div>
+
+            <!-- Session History Section -->
+            <div class="session-history-container">
+                <div class="session-history-header">
+                    <div class="session-history-title">
+                        <i class="fas fa-history"></i>
+                        <h3>Session History</h3>
+                    </div>
+                    <div class="session-history-filter">
+                        <select id="time-filter" class="filter-dropdown">
+                            <option value="all">All Time</option>
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Session History Table -->
+                <div class="session-table-container">
+                    <table class="session-table" id="session-table">
+                        <thead>
+                            <tr>
+                                <th>PARTICIPANT</th>
+                                <th>DATE</th>
+                                <th>TIME STARTED</th>
+                                <th>TIME ENDED</th>
+                                <th>USER ID</th>
+                                <th>SESSION DURATION</th>
+                                <th>EPSILON CHANGES</th>
+                                <th>CONSENT FORM</th>
+                                <th>PRIVACY FORM</th>
+                            </tr>
+                        </thead>
+                        <tbody id="session-table-body">
+                            <!-- Table rows will be dynamically generated -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
         <!-- Report page -->
         <div class="page-content" id="report-page">
             <div class="content-section">
-                <h2>Weekly Report</h2>
-                <p>View weekly activity reports.</p>
+                <h2>Privacy Form</h2>
+                <p>View Privacy Form</p>
             </div>
         </div>
 
-        <!-- AI page -->
-        <div class="page-content" id="ai-page">
-            <div class="content-section">
-                <h2>Zynex AI</h2>
-                <p>AI-powered analytics and insights.</p>
+    <!-- Account page -->
+    <div class="page-content" id="account-page">
+        <div class="account-container">
+            <!-- Account Management Header -->
+            <div class="account-header">
+                <div class="account-icon">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="account-header-text">
+                    <h1>Account Management</h1>
+                    <p>Manage your profile and session information</p>
+                </div>
+            </div>
+
+            <!-- Profile Information Card -->
+            <div class="account-card">
+                <h3 class="account-card-title">
+                    <i class="fa-solid fa-user"></i> Profile Information
+                </h3>
+                
+                <div class="profile-grid">
+                    <div class="profile-item">
+                        <span class="profile-label">USER ID</span>
+                        <span class="profile-value" id="account-user-id">U-3189</span>
+                    </div>
+                    <div class="profile-item">
+                        <span class="profile-label">SESSION ID</span>
+                        <span class="profile-value" id="account-session-id">S-253564</span>
+                    </div>
+                    <div class="profile-item">
+                        <span class="profile-label">ACCOUNT TYPE</span>
+                        <span class="profile-value">Research Participant</span>
+                    </div>
+                    <div class="profile-item">
+                        <span class="profile-label">CURRENT EPSILON</span>
+                        <span class="profile-value profile-epsilon" id="account-epsilon">1.00</span>
+                    </div>
+                    <div class="profile-item" style="grid-column: 1 / -1;">
+                        <span class="profile-label">PRIVACY LEVEL</span>
+                        <span class="privacy-badge" id="account-privacy-badge">Moderate Privacy</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Session Statistics Card -->
+            <div class="account-card">
+                <h3 class="account-card-title">
+                    <i class="fa-solid fa-chart-line"></i> Session Statistics
+                </h3>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-label">SESSION DURATION</div>
+                        <div class="stat-value" id="session-duration">0h 0m 0s</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-label">EPSILON CHANGES</div>
+                        <div class="stat-value" id="epsilon-changes">0</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <div class="stat-label">PRIVACY SCORE</div>
+                        <div class="stat-value" id="privacy-score">0%</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="stat-label">SESSION STATUS</div>
+                        <div class="stat-value stat-active" id="session-status">Active</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity Card -->
+            <div class="account-card">
+                <h3 class="account-card-title">
+                    <i class="fas fa-clock"></i> Recent Activity
+                </h3>
+                
+                <div class="activity-timeline">
+                    <div class="activity-item">
+                        <div class="activity-dot active"></div>
+                        <div class="activity-content">
+                            <h4 class="activity-title">Session Started</h4>
+                            <p class="activity-time">9:20:03 PM</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot pending"></div>
+                        <div class="activity-content">
+                            <h4 class="activity-title">Consent Form Not Completed</h4>
+                            <p class="activity-time">Pending</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot pending"></div>
+                        <div class="activity-content">
+                            <h4 class="activity-title">Privacy Form Not Completed</h4>
+                            <p class="activity-time">Pending</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research Participation Card -->
+            <div class="account-card">
+                <h3 class="account-card-title">
+                    <i class="fa-solid fa-award"></i> Research Participation
+                </h3>
+                
+                <div class="participation-grid">
+                    <div class="participation-item">
+                        <div class="participation-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="participation-content">
+                            <h4>Study Completion</h4>
+                            <p>Track your progress through research milestones</p>
+                            <span class="status-badge status-progress">In Progress</span>
+                        </div>
+                    </div>
+                    <div class="participation-item">
+                        <div class="participation-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="participation-content">
+                            <h4>Privacy Decisions Made</h4>
+                            <p>Total epsilon adjustments contributing to research</p>
+                            <span class="count-badge" id="decisions-count">0</span>
+                        </div>
+                    </div>
+                    <div class="participation-item">
+                        <div class="participation-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="participation-content">
+                            <h4>Research Contribution</h4>
+                            <p>Your participation helps advance privacy research</p>
+                            <span class="status-badge status-active">Active</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Footer -->
+            <div class="account-footer">
+                <div class="footer-item">
+                    <span class="footer-label">Account Created:</span>
+                    <span class="footer-value" id="account-created">10/15/2025</span>
+                </div>
+                <div class="footer-item">
+                    <span class="footer-label">Last Updated:</span>
+                    <span class="footer-value" id="account-updated">Just now</span>
+                </div>
+                <div class="footer-item">
+                    <span class="footer-label">Data Collection:</span>
+                    <span class="footer-value footer-active">Active</span>
+                </div>
             </div>
         </div>
-
-        <!-- Settings page -->
-        <div class="page-content" id="settings-page">
-            <div class="content-section">
-                <h2>Settings</h2>
-                <p>Configure system settings.</p>
+    </div>
+    
+    <!-- CAPTCHA Modal -->
+    <div class="captcha-modal" id="captcha-modal">
+        <div class="captcha-modal-content">
+            <div class="captcha-header">
+                <div class="captcha-header-top">
+                    <h2>Match the characters in the picture</h2>
+                </div>
+                <p>To continue, type the characters you see in the picture.</p>
             </div>
-        </div>
 
-        <!-- Account page -->
-        <div class="page-content" id="account-page">
-            <div class="content-section">
-                <h2>Account</h2>
-                <p>Manage your account information.</p>
+            <div class="captcha-body">
+                <!-- Text CAPTCHA -->
+                <div class="captcha-section" id="text-captcha-section">
+                    <div class="text-captcha-display">
+                        <canvas id="captcha-canvas" width="380" height="120"></canvas>
+                        <div class="captcha-audio-btns">
+                            <button class="captcha-icon-btn" title="Audio challenge">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                            <button class="captcha-icon-btn" title="Get new challenge">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="captcha-character-count">The picture contains <span id="character-count">6</span> characters.</div>
+                    
+                    <div class="captcha-input-row">
+                        <label for="captcha-input">Characters:</label>
+                        <input type="text" 
+                               id="captcha-input" 
+                               class="captcha-input" 
+                               autocomplete="off"
+                               spellcheck="false">
+                    </div>
+                    
+                </div>
+
+                <!-- Success Message -->
+                <div class="captcha-success hidden" id="captcha-success">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Verification Successful!</h3>
+                    <p>You may now continue using the dashboard</p>
+                </div>
+
+            <div class="captcha-footer">
+                <span class="captcha-count">CAPTCHA <span id="captcha-current">1</span> of <span id="captcha-total">10</span></span>
+                <button class="captcha-continue-btn" id="verify-text-captcha">Continue</button>
             </div>
         </div>
     </div>
   
     <!-- External JS file -->
     <script src="scripts.js"></script>
+
 </body>
 </html>
