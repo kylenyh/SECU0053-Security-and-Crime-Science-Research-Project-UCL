@@ -1,27 +1,44 @@
-//* Digital Clock */
+/* Digital Clock - Automatically detects user's local timezone
+ * This clock will display the correct time for any user worldwide
+ * based on their device's system timezone setting.
+ * Examples:
+ * - User in China: Shows China time (UTC+8)
+ * - User in USA: Shows their local US time (UTC-5 to UTC-8)
+ * - User in UK: Shows UK time (UTC+0 or UTC+1)
+ * - User in Australia: Shows Australian time (UTC+8 to UTC+11)
+ * - User in India: Shows India time (UTC+5:30)
+ */
 function updateClock() {
+    // Get current date/time in user's local timezone
     const now = new Date();
+    
+    // Extract time components in user's local timezone
     let hours = now.getHours();
     const minutes = now.getMinutes().toString().padStart(2, '0');
     const seconds = now.getSeconds().toString().padStart(2, '0');
     const ampm = hours >= 12 ? 'PM' : 'AM';
-    // Keep hours in 24-hour format
+    
+    // Display hours in 24-hour format (00-23)
     const displayHours = now.getHours().toString().padStart(2, '0');
 
+    // Update time display
     document.getElementById('hours').textContent = displayHours;
     document.getElementById('minutes').textContent = minutes;
     document.getElementById('seconds').textContent = seconds;
     document.getElementById('ampm').textContent = ampm;
 
+    // Extract date components in user's local timezone
     const year = now.getFullYear();
     const monthNames = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
     const month = monthNames[now.getMonth()];
     const day = now.getDate().toString().padStart(2, '0');
 
+    // Update date display
     document.getElementById('year').textContent = year;
     document.getElementById('month').textContent = month;
     document.getElementById('day').textContent = day;
 
+    // Highlight current day of week (0 = Sunday, 6 = Saturday)
     const dayOfWeek = now.getDay();
     document.querySelectorAll('.day').forEach(d => d.classList.remove('active'));
     document.querySelectorAll('.day')[dayOfWeek].classList.add('active');
@@ -298,13 +315,20 @@ function clearUserId() {
 let privacyState = {
     epsilon: 0.1,
     settingsChanged: 0,
-    userId: generateUserId()
+    userId: generateUserId(),
+    epsilonValues: [], // Track all epsilon values for average calculation
+    totalEpsilonSum: 0, // Track sum for efficient average calculation
+    sessionStartTime: new Date(), // Track when session started
+    sessionEndTime: null, // Track when session ended
+    sessionEnded: false // Track if session has ended
 };
 
-// Track completion status
+// Track completion status with timestamps
 let completionStatus = {
     consentCompleted: false,
-    privacyCompleted: false
+    consentCompletedTime: null,
+    privacyCompleted: false,
+    privacyCompletedTime: null
 };
 
 function initializePrivacyControls() {
@@ -313,21 +337,35 @@ function initializePrivacyControls() {
     
     if (!slider) return;
     
-        slider.addEventListener('input', function() {
+    // Use 'input' event for real-time display updates
+    slider.addEventListener('input', function() {
         const epsilon = parseFloat(this.value);
         updatePrivacyDisplay(epsilon);
         updateTradeoffMetrics(epsilon);
         updatePerformanceMetrics(epsilon);
-        privacyState.settingsChanged++;
         privacyState.epsilon = epsilon;
+    });
+    
+    // Use 'change' event to count actual epsilon selections (when user releases slider)
+    slider.addEventListener('change', function() {
+        const epsilon = parseFloat(this.value);
+        
+        // Only count this as a new selection
+        privacyState.settingsChanged++;
+        
+        // Track epsilon value for average calculation
+        privacyState.epsilonValues.push(epsilon);
+        privacyState.totalEpsilonSum += epsilon;
+        
+        console.log('Epsilon changed to:', epsilon);
+        console.log('Total selections:', privacyState.settingsChanged);
+        console.log('Epsilon values:', privacyState.epsilonValues);
+        console.log('Average:', (privacyState.totalEpsilonSum / privacyState.epsilonValues.length).toFixed(2));
+        
         updateSessionInfo();
+        updateAccountInfo(); // Update average epsilon display
         
-        // Mark privacy form as completed on first adjustment
-        if (privacyState.settingsChanged === 1) {
-            markPrivacyCompleted();
-        }
-        
-        // Update activity even after first adjustment
+        // Update activity status
         updateRecentActivityStatus();
         
         // Trigger CAPTCHA based on epsilon value
@@ -378,28 +416,38 @@ function initializeAccountPage() {
 // Function to mark consent as completed
 function markConsentCompleted() {
     completionStatus.consentCompleted = true;
+    completionStatus.consentCompletedTime = new Date().toLocaleTimeString('en-US', { 
+        hour: '2-digit', 
+        minute: '2-digit',
+        second: '2-digit'
+    });
     updateRecentActivityStatus();
 }
 
-// Function to mark privacy form as completed
-function markPrivacyCompleted() {
+// Function to mark privacy questionnaire as completed (call this when actual questionnaire is submitted)
+function markPrivacyQuestionnaireCompleted() {
     completionStatus.privacyCompleted = true;
+    completionStatus.privacyCompletedTime = new Date().toLocaleTimeString('en-US', { 
+        hour: '2-digit', 
+        minute: '2-digit',
+        second: '2-digit'
+    });
     updateRecentActivityStatus();
 }
 
 // Update Recent Activity status based on completion
 function updateRecentActivityStatus() {
     // Update consent form status
-    const consentDot = document.querySelector('.activity-item:nth-child(2) .activity-dot');
-    const consentTitle = document.querySelector('.activity-item:nth-child(2) .activity-title');
-    const consentTime = document.querySelector('.activity-item:nth-child(2) .activity-time');
+    const consentDot = document.getElementById('consent-dot');
+    const consentTitle = document.getElementById('consent-title');
+    const consentTime = document.getElementById('consent-time');
     
     if (consentDot && consentTitle && consentTime) {
         if (completionStatus.consentCompleted) {
             consentDot.classList.remove('pending');
             consentDot.classList.add('active');
             consentTitle.textContent = 'Consent Form Completed';
-            consentTime.textContent = new Date().toLocaleTimeString('en-US', { 
+            consentTime.textContent = completionStatus.consentCompletedTime || new Date().toLocaleTimeString('en-US', { 
                 hour: '2-digit', 
                 minute: '2-digit',
                 second: '2-digit'
@@ -412,22 +460,26 @@ function updateRecentActivityStatus() {
         }
     }
     
-    // Update privacy form status
-    const privacyDot = document.querySelector('.activity-item:nth-child(3) .activity-dot');
-    const privacyTitle = document.querySelector('.activity-item:nth-child(3) .activity-title');
-    const privacyTime = document.querySelector('.activity-item:nth-child(3) .activity-time');
+    // Update privacy form status (questionnaire completion, NOT epsilon adjustment)
+    const privacyDot = document.getElementById('privacy-dot');
+    const privacyTitle = document.getElementById('privacy-title');
+    const privacyTime = document.getElementById('privacy-time');
 
     if (privacyDot && privacyTitle && privacyTime) {
         if (completionStatus.privacyCompleted) {
             privacyDot.classList.remove('pending');
             privacyDot.classList.add('active');
-            privacyTitle.textContent = 'Privacy Form Completed';  // CHANGE THIS LINE
-            privacyTime.textContent = `Epsilon: ${privacyState.epsilon.toFixed(2)}`;
+            privacyTitle.textContent = 'Privacy Form Completed';
+            privacyTime.textContent = completionStatus.privacyCompletedTime || new Date().toLocaleTimeString('en-US', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                second: '2-digit'
+            });
         } else {
             privacyDot.classList.remove('active');
             privacyDot.classList.add('pending');
-            privacyTitle.textContent = 'Privacy Form Not Completed';  // CHANGE THIS LINE
-            privacyTime.textContent = 'Pending';  // CHANGE THIS LINE
+            privacyTitle.textContent = 'Privacy Form Not Completed';
+            privacyTime.textContent = 'Pending';
         }
     }
 }
@@ -483,32 +535,15 @@ function updateAccountInfo() {
         decisionsCount.textContent = privacyState.settingsChanged;
     }
     
-    // Calculate privacy score
-    const privacyScore = document.getElementById('privacy-score');
-    if (privacyScore) {
-        const score = Math.round(100 - (privacyState.epsilon / 5.0) * 100);
-        privacyScore.textContent = score + '%';
-    }
-}
-
-function updateAccountTimestamp() {
-    const accountUpdated = document.getElementById('account-updated');
-    if (accountUpdated) {
-        const now = new Date();
-        const timeString = now.toLocaleTimeString('en-US', { 
-            hour: '2-digit', 
-            minute: '2-digit',
-            second: '2-digit'
-        });
-        accountUpdated.textContent = timeString;
-    }
-    
-    // Update account created date (one time)
-    const accountCreated = document.getElementById('account-created');
-    if (accountCreated && !accountCreated.dataset.initialized) {
-        const now = new Date();
-        accountCreated.textContent = `${now.getMonth() + 1}/${now.getDate()}/${now.getFullYear()}`;
-        accountCreated.dataset.initialized = 'true';
+    // Calculate and display average epsilon
+    const averageEpsilon = document.getElementById('average-epsilon');
+    if (averageEpsilon) {
+        if (privacyState.epsilonValues.length > 0) {
+            const average = privacyState.totalEpsilonSum / privacyState.epsilonValues.length;
+            averageEpsilon.textContent = average.toFixed(2);
+        } else {
+            averageEpsilon.textContent = '0.00';
+        }
     }
 }
 
@@ -683,18 +718,40 @@ function updateSessionInfo() {
         });
         lastUpdatedEl.textContent = timeString;
     }
+    
+    // Update account info including privacy score in real-time
+    updateAccountInfo();
 }
 
 /* ============================================
    CALENDAR FUNCTIONALITY
+   
+   AUTOMATIC TIMEZONE DETECTION:
+   This calendar automatically detects and displays dates
+   based on the user's local timezone. Just like the clock,
+   it uses JavaScript's Date object which automatically
+   adapts to the user's device settings.
+   
+   Examples of automatic adaptation:
+   - User in China (UTC+8): Calendar shows Chinese date
+   - User in USA (UTC-5 to UTC-8): Shows US date
+   - User in UK (UTC+0/+1): Shows UK date
+   - User in Australia (UTC+8 to UTC+11): Shows Australian date
+   - User in Japan (UTC+9): Shows Japanese date
+   
+   The calendar will correctly show:
+   ✓ Today's date for the user's location
+   ✓ Current month for the user's location
+   ✓ Current year for the user's location
+   ✓ Correct day of the week for the user's location
    ============================================ */
 
-let currentMonth = new Date().getMonth(); // Current month
-let currentYear = new Date().getFullYear();
-let selectedDate = new Date().getDate(); // Current date
+let currentMonth = new Date().getMonth(); // Gets user's local current month (0-11)
+let currentYear = new Date().getFullYear(); // Gets user's local current year
+let selectedDate = new Date().getDate(); // Gets user's local current date
 let selectedMonth = new Date().getMonth(); // Track selected month
 let selectedYear = new Date().getFullYear(); // Track selected year
-const today = new Date(); // Use actual current date
+const today = new Date(); // Captures user's actual current date/time in their timezone
 
 const MIN_YEAR = 2025;
 const MAX_YEAR = 2035;
@@ -1037,9 +1094,14 @@ function generateNotifications() {
                 </div>
 
                 <div class="notification-status"></div>
-                <button class="notification-read-btn" data-read="false">
-                    <i class="fas fa-envelope"></i>
-                </button>
+                <div class="notification-actions">
+                    <button class="notification-read-btn" data-read="false">
+                        <i class="fas fa-envelope"></i>
+                    </button>
+                    <button class="notification-delete-btn">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
             `;
             notificationsList.appendChild(notification);
             unreadCount++;
@@ -1134,6 +1196,44 @@ function attachNotificationReadListeners() {
             }
             
             updateNotificationCounters();
+        });
+    });
+    
+    // Attach delete button listeners
+    attachNotificationDeleteListeners();
+}
+
+function attachNotificationDeleteListeners() {
+    const deleteButtons = document.querySelectorAll('.notification-delete-btn');
+    
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const notificationItem = this.closest('.notification-item');
+            const icon = this.querySelector('i');
+            
+            // Add closing animation class
+            icon.classList.add('bin-closing');
+            
+            // Wait for animation, then remove notification
+            setTimeout(() => {
+                // Check if notification was unread
+                const readButton = notificationItem.querySelector('.notification-read-btn');
+                const isRead = readButton.getAttribute('data-read') === 'true';
+                
+                if (!isRead) {
+                    unreadCount--;
+                }
+                
+                // Remove the notification with fade out
+                notificationItem.style.opacity = '0';
+                notificationItem.style.transform = 'translateX(50px)';
+                
+                setTimeout(() => {
+                    notificationItem.remove();
+                    updateNotificationCounters();
+                }, 300);
+            }, 300);
         });
     });
 }
@@ -1595,11 +1695,11 @@ function triggerCaptcha(action) {
     const requiredCaptchas = calculateRequiredCaptchas(epsilon);
     
     captchaState.required = requiredCaptchas;
-    captchaState.completed = 1;
+    captchaState.completed = 0;
     captchaState.pendingAction = action;
     captchaState.isActive = true;
     
-    updateCaptchaCounter();
+    updateCaptchaCounter(false); // Show "1 of X" for first CAPTCHA
     showNextCaptcha();
 }
 
@@ -1733,7 +1833,7 @@ function showCaptchaSuccess() {
     // SHOW the success section by removing the hidden class
     successSection.classList.remove('hidden');
     
-    updateCaptchaCounter();
+    updateCaptchaCounter(true); // Show completed number (e.g., "1 of 2")
     
     // FIXED: Check if we're done BEFORE showing success
     if (captchaState.completed >= captchaState.required) {
@@ -1767,6 +1867,9 @@ function showNextCaptcha() {
     textSection.classList.remove('hidden');
     successSection.classList.add('hidden');  // ADD THIS - hide success
     
+    // Update counter for the next CAPTCHA to work on
+    updateCaptchaCounter(false); // Show "2 of 2" etc.
+    
     generateTextCaptcha();
     
     modal.classList.add('active');
@@ -1791,8 +1894,11 @@ function completeCaptchaFlow() {
 }
 
 // Update CAPTCHA counter display
-function updateCaptchaCounter() {
-    document.getElementById('captcha-current').textContent = captchaState.completed + 0;
+// When inSuccess is true, show the number just completed
+// When false, show the number about to work on
+function updateCaptchaCounter(inSuccess = false) {
+    const displayNumber = inSuccess ? captchaState.completed : captchaState.completed + 1;
+    document.getElementById('captcha-current').textContent = displayNumber;
     document.getElementById('captcha-total').textContent = captchaState.required;
 }
 
@@ -1946,33 +2052,50 @@ function updateAccountInfo() {
         decisionsCount.textContent = privacyState.settingsChanged;
     }
     
-    // Calculate and update privacy score - MODIFIED THIS SECTION
-    const privacyScore = document.getElementById('privacy-score');
-    if (privacyScore) {
-        // If no adjustments made yet, show 0%
-        if (privacyState.settingsChanged === 0) {
-            privacyScore.textContent = '0%';
+    // Calculate and display average epsilon
+    const averageEpsilon = document.getElementById('average-epsilon');
+    if (averageEpsilon) {
+        if (privacyState.epsilonValues && privacyState.epsilonValues.length > 0) {
+            const average = privacyState.totalEpsilonSum / privacyState.epsilonValues.length;
+            averageEpsilon.textContent = average.toFixed(2);
+            console.log('Updated average epsilon:', average.toFixed(2), 'from', privacyState.epsilonValues.length, 'values');
         } else {
-            // Lower epsilon = higher privacy score
-            // epsilon 0.0 = 98% privacy, epsilon 5.0 = 0% privacy
-            const score = Math.round(100 - ((privacyState.epsilon - 0.1) / (5.0 - 0.1)) * 100);
-            privacyScore.textContent = score + '%';
+            averageEpsilon.textContent = '0.00';
+            console.log('No epsilon values yet');
         }
+    } else {
+        console.log('average-epsilon element not found');
     }
     
     console.log('Account info update complete');
 }
 
 function updateAccountTimestamp() {
-    const accountUpdated = document.getElementById('account-updated');
-    if (accountUpdated) {
-        const now = new Date();
-        const timeString = now.toLocaleTimeString('en-US', { 
+    // Update session started time (one time)
+    const sessionStarted = document.getElementById('session-started');
+    if (sessionStarted && !sessionStarted.dataset.initialized) {
+        const timeString = privacyState.sessionStartTime.toLocaleTimeString('en-US', { 
             hour: '2-digit', 
             minute: '2-digit',
             second: '2-digit'
         });
-        accountUpdated.textContent = timeString;
+        sessionStarted.textContent = timeString;
+        sessionStarted.dataset.initialized = 'true';
+    }
+    
+    // Update session ended status
+    const sessionEnded = document.getElementById('session-ended');
+    if (sessionEnded) {
+        if (privacyState.sessionEnded && privacyState.sessionEndTime) {
+            const timeString = privacyState.sessionEndTime.toLocaleTimeString('en-US', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            sessionEnded.textContent = timeString;
+        } else {
+            sessionEnded.textContent = 'Session Ongoing';
+        }
     }
     
     // Update account created date (one time)
@@ -1982,6 +2105,24 @@ function updateAccountTimestamp() {
         accountCreated.textContent = `${now.getMonth() + 1}/${now.getDate()}/${now.getFullYear()}`;
         accountCreated.dataset.initialized = 'true';
     }
+    
+    // Calculate and update session duration in real-time
+    updateSessionDuration();
+}
+
+// Function to calculate and update session duration
+function updateSessionDuration() {
+    const sessionDuration = document.getElementById('session-duration');
+    if (!sessionDuration) return;
+    
+    const endTime = privacyState.sessionEnded ? privacyState.sessionEndTime : new Date();
+    const elapsed = endTime - privacyState.sessionStartTime;
+    
+    const hours = Math.floor(elapsed / (1000 * 60 * 60));
+    const minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
+    
+    sessionDuration.textContent = `${hours}h ${minutes}m ${seconds}s`;
 }
 
 // Hook into the existing updateSessionInfo to also update account page
@@ -2851,3 +2992,269 @@ function downloadConsentAsPDF(data) {
     
     console.log(`Opening print dialog for PDF: Consent_Form_${data.userId}_${data.date.replace(/\//g, '-')}.pdf`);
 }
+/* Guide Page CTA Button Navigation */
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle CTA button clicks in Guide page
+    const ctaButtons = document.querySelectorAll('.cta-button[data-page]');
+    
+    ctaButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetPage = this.getAttribute('data-page');
+            
+            // Remove active class from all nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Add active class to target nav link
+            const targetNavLink = document.querySelector(`.nav-link[data-page="${targetPage}"]`);
+            if (targetNavLink) {
+                targetNavLink.classList.add('active');
+            }
+            
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show target page
+            const targetPageElement = document.getElementById(`${targetPage}-page`);
+            if (targetPageElement) {
+                targetPageElement.classList.add('active');
+            }
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            console.log(`Navigated from Guide to: ${targetPage}`);
+        });
+    });
+});
+
+
+/* FAQ Accordion Functionality */
+function initializeFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            // Close all other items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            item.classList.toggle('active');
+        });
+    });
+}
+
+// Initialize FAQ when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initializeFAQ();
+});
+/* Resources Page Tab Functionality */
+function initializeResourceTabs() {
+    const tabs = document.querySelectorAll('.resource-tab');
+    const categories = document.querySelectorAll('.resource-category');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const categoryName = tab.getAttribute('data-category');
+            
+            // Remove active class from all tabs
+            tabs.forEach(t => t.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            tab.classList.add('active');
+            
+            // Hide all categories
+            categories.forEach(cat => cat.classList.remove('active'));
+            
+            // Show selected category
+            const selectedCategory = document.getElementById(`category-${categoryName}`);
+            if (selectedCategory) {
+                selectedCategory.classList.add('active');
+            }
+        });
+    });
+    
+    // Add click handlers for resource arrows
+    const resourceArrows = document.querySelectorAll('.resource-arrow');
+    resourceArrows.forEach(arrow => {
+        arrow.addEventListener('click', () => {
+            const url = arrow.getAttribute('data-url');
+            if (url) {
+                window.open(url, '_blank');
+            }
+        });
+    });
+}
+
+// Update the DOMContentLoaded event
+document.addEventListener('DOMContentLoaded', () => {
+    initializeFAQ();
+    initializeResourceTabs();
+});
+/* Real-time Resource Statistics Counter */
+function updateResourceStats() {
+    // Count resources in each category
+    const categories = {
+        'websites': 'stat-websites',
+        'papers': 'stat-papers',
+        'news': 'stat-news',
+        'videos': 'stat-videos',
+        'tools': 'stat-tools'
+    };
+    
+    Object.keys(categories).forEach(category => {
+        const categoryElement = document.getElementById(`category-${category}`);
+        if (categoryElement) {
+            // Count all resource-item elements in this category
+            const resourceCount = categoryElement.querySelectorAll('.resource-item').length;
+            
+            // Update the stat number
+            const statElement = document.getElementById(categories[category]);
+            if (statElement) {
+                const currentCount = parseInt(statElement.textContent);
+                if (currentCount !== resourceCount) {
+                    statElement.textContent = resourceCount;
+                    statElement.classList.add('updated');
+                    
+                    // Remove animation class after animation completes
+                    setTimeout(() => {
+                        statElement.classList.remove('updated');
+                    }, 500);
+                }
+            }
+        }
+    });
+}
+
+/* Update Resource Tabs with Real-time Counts */
+function updateResourceTabs() {
+    const tabs = document.querySelectorAll('.resource-tab');
+    const categories = ['websites', 'papers', 'news', 'videos', 'tools'];
+    
+    tabs.forEach((tab, index) => {
+        const categoryName = categories[index];
+        const categoryElement = document.getElementById(`category-${categoryName}`);
+        
+        if (categoryElement) {
+            const resourceCount = categoryElement.querySelectorAll('.resource-item').length;
+            
+            // Update individual category stats within each category
+            const categoryStats = categoryElement.querySelector('.resource-stats .stat-number');
+            if (categoryStats) {
+                categoryStats.textContent = resourceCount;
+            }
+        }
+    });
+}
+
+// Initialize and update stats on page load
+document.addEventListener('DOMContentLoaded', () => {
+    initializeFAQ();
+    initializeResourceTabs();
+    
+    // Initial stats update
+    updateResourceStats();
+    updateResourceTabs();
+    
+    // Optional: Set up periodic updates (if resources are added dynamically)
+    // setInterval(updateResourceStats, 5000); // Update every 5 seconds
+});
+
+// Update stats whenever a new resource is added (for future dynamic additions)
+function addResourceItem(category, resourceData) {
+    const categoryElement = document.getElementById(`category-${category}`);
+    if (categoryElement) {
+        // Create new resource item
+        const resourceItem = document.createElement('div');
+        resourceItem.className = 'resource-item';
+        resourceItem.innerHTML = `
+            <div class="resource-content">
+                <h3>${resourceData.title} <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                <p>${resourceData.description}</p>
+                ${resourceData.meta ? `<div class="resource-meta">${resourceData.meta}</div>` : ''}
+            </div>
+            <button class="resource-arrow" data-url="${resourceData.url}">
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        `;
+        
+        // Insert before the stats box
+        const statsBox = categoryElement.querySelector('.resource-stats');
+        if (statsBox) {
+            categoryElement.insertBefore(resourceItem, statsBox);
+        } else {
+            categoryElement.appendChild(resourceItem);
+        }
+        
+        // Update stats
+        updateResourceStats();
+        updateResourceTabs();
+        
+        // Add click handler for the new arrow button
+        const arrow = resourceItem.querySelector('.resource-arrow');
+        arrow.addEventListener('click', () => {
+            const url = arrow.getAttribute('data-url');
+            if (url) {
+                window.open(url, '_blank');
+            }
+        });
+    }
+}
+
+/* ============================================
+   SESSION END TRACKING
+   ============================================ */
+
+// Track when user actually closes the browser/tab (not just navigating)
+window.addEventListener('pagehide', function(e) {
+    // Only mark as ended if it's a true close (not just navigation)
+    if (e.persisted === false) {
+        privacyState.sessionEnded = true;
+        privacyState.sessionEndTime = new Date();
+        
+        // Store in localStorage so it persists
+        try {
+            localStorage.setItem('sessionEndTime', privacyState.sessionEndTime.toISOString());
+            localStorage.setItem('sessionEnded', 'true');
+        } catch (err) {
+            console.log('Could not store session end time:', err);
+        }
+    }
+});
+
+// Initialize on page load
+window.addEventListener('load', function() {
+    // Clear any previous "ended" status since we're loading the page now
+    // This means the session is ACTIVE again
+    try {
+        const wasEnded = localStorage.getItem('sessionEnded');
+        
+        // If there was a previous session that ended, we can optionally preserve that
+        // But for the current session, we're active
+        if (wasEnded === 'true') {
+            // Clear the flags - this is a NEW session now
+            localStorage.removeItem('sessionEnded');
+            localStorage.removeItem('sessionEndTime');
+        }
+        
+        // Current session is always ongoing when page loads
+        privacyState.sessionEnded = false;
+        privacyState.sessionEndTime = null;
+        
+    } catch (err) {
+        console.log('Could not retrieve session end time:', err);
+    }
+    
+    // Update display immediately
+    updateAccountTimestamp();
+});
