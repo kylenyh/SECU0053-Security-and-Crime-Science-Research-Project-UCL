@@ -13,14 +13,17 @@
         <h2><i class="fas fa-bolt"></i> Zynex</h2>
         
         <div class="top-menu">
-            <a href="#" class="nav-link active" data-page="overview">
+            <a href="#" class="nav-link active" data-page="guide">
+                <i class="fa-solid fa-book-open"></i> Guide
+            </a>
+            <a href="#" class="nav-link " data-page="overview">
                 <i class="fa-solid fa-circle-info"></i> Overview
             </a>
             <a href="#" class="nav-link" data-page="features">
                 <i class="fa-solid fa-table-cells-large"></i> Features
             </a>
             <a href="#" class="nav-link" data-page="home">
-                <i class="fa-solid fa-house-user"></i> Home
+                <i class="fas fa-home"></i> Home
             </a>
             <a href="#" class="nav-link" data-page="calendar">
                 <i class="fas fa-calendar-alt"></i> Calendar
@@ -43,11 +46,14 @@
         </div>
 
         <div class="bottom-menu">
-            <a href="#" class="nav-link" data-page="chatbot">
-                <i class="fa-solid fa-circle-nodes"></i> Zynex AI
-            </a>
             <a href="#" class="nav-link" data-page="account">
                 <i class="fa-solid fa-user"></i> <span id="sidebar-user-id">U-1234</span>
+            </a>
+            <a href="#" class="nav-link" data-page="faq">
+                <i class="fa-solid fa-question"></i> FAQ
+            </a>
+            <a href="#" class="nav-link" data-page="resources">
+                <i class="fa-solid fa-link"></i> Resources
             </a>
         </div>
     </div>
@@ -55,7 +61,22 @@
     <!-- Main Content -->
     <div class="main-content">
         <div class="dashboard-header">
-            <h1 class="dashboard-title">Privacy Utility Tradeoff Dashboard (Applied Differential Privacy)</h1>
+            <!-- Left Container - Industry Leaders -->
+            <div class="industry-leaders-container">
+                <div class="industry-leaders-text">Zynex UI/UX Inspired By Industry-Leading Technology Platforms</div>
+                <div class="industry-icons">
+                    <i class="fa-brands fa-meta"></i>
+                    <i class="fa-brands fa-apple"></i>
+                    <i class="fa-brands fa-microsoft"></i>
+                    <i class="fa-brands fa-google"></i>
+                    <i class="fa-brands fa-amazon"></i>
+                </div>
+            </div>
+            
+            <!-- Center Title -->
+            <h1 class="dashboard-title">Privacy Utility Tradeoff Dashboard</h1>
+            
+            <!-- Right Container - Clock -->
             <div class="dashboard-clock">
                 <div class="digital-clock-container">
                     <div class="days-display">
@@ -85,9 +106,308 @@
             </div>
         </div>
 
-        <!-- Overview Page -->
-        <div class="page-content active" id="overview-page">
+        <!-- Guide Page -->
+        <div class="page-content active" id="guide-page">
             <div class="overview-container">
+                <!-- Welcome Header -->
+                <div class="research-study-header">
+                    <div class="welcome-badge">
+                        <i class="fa-solid fa-hand"></i>
+                        <span>WELCOME TO ZYNEX</span>
+                    </div>
+                    <h1 class="research-title">Your Complete Guide to the Zynex Dashboard</h1>
+                    <p class="research-subtitle">Everything you need to know to participate in this groundbreaking research</p>
+                    <div class="guide-intro-text">
+                        <p>Welcome, participant! We're thrilled to have you join us in this important research study. This guide will walk you through everything you need to know about the Zynex Dashboard and your role in advancing privacy research.</p>
+                    </div>
+                </div>
+
+                <!-- What is Zynex Section -->
+                <div class="research-question-section">
+                    <div class="section-header">
+                        <i class="fas fa-bolt"></i>
+                        <h2>What is the Zynex Dashboard?</h2>
+                    </div>
+                    <div class="question-box">
+                        <h3 class="main-question">An Interactive Research Platform for Privacy Decision-Making</h3>
+                        <p class="question-description">The Zynex Dashboard is a cutting-edge web-based platform designed to help researchers understand how people make privacy decisions in real-world scenarios. Built on the principles of <strong>differential privacy</strong>, Zynex puts you in control of your privacy settings through an intuitive interface that visualizes the trade-offs between privacy protection and system performance.</p>
+                        
+                        <div class="info-highlight-box">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <h4>The Core Concept: Privacy Budget (ε - Epsilon)</h4>
+                                <p>At the heart of Zynex is the concept of the <strong>privacy budget (epsilon or ε)</strong>. Think of it as a dial that controls how much "noise" is added to your data to protect your privacy. Lower epsilon = more privacy but potentially reduced performance. Higher epsilon = less privacy but better performance. Your task is to find the balance that feels right to you.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- How to Use the Dashboard Section -->
+                <div class="research-method-section">
+                    <div class="section-header">
+                        <i class="fa-solid fa-universal-access"></i>
+                        <h2>How to Use the Zynex Dashboard</h2>
+                    </div>
+                    <p class="method-intro">Follow these detailed steps to navigate the dashboard and complete your participation. Take your time and explore each feature—there's no rush!</p>
+                    
+                    <div class="step-by-step-guide">
+
+                        <!-- Step 1 -->
+                        <div class="guide-step">
+                            <div class="step-number">
+                                <span>1</span>
+                            </div>
+                            <div class="step-content">
+                                <h3><i class="fa-solid fa-circle-info"></i> Explore the Research Overview</h3>
+                                <p>Visit the <strong>Overview</strong> page to understand the focus of the research study. Here you'll find the:</p>
+                                <ul class="guide-list">
+                                    <li><strong>Research Question:</strong> The central question the study aims to answer </li>
+                                    <li><strong>Research Objectives:</strong> The specific, measurable goals that will help address the research question </li>
+                                    <li><strong>Research Method:</strong> The approach that will be used to answer the research question </li>
+                                    <li><strong>Privacy Threat Model:</strong> The adversary, the attack vector, the threat model's connection to the study </li>
+                                    <li><strong>Study Limitations:</strong> The constraints that might affect the generalisability of the results </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="guide-step">
+                            <div class="step-number">
+                                <span>2</span>
+                            </div>
+                            <div class="step-content">
+                                <h3><i class="fas fa-file-signature"></i> Complete the Consent Form</h3>
+                                <p>Navigate to the <strong>Consent Form</strong> page in the sidebar. Read through the information carefully and provide your consent to participate in the study. This is a required step that ensures you understand your rights and the nature of the research.</p>
+                                <div class="step-tip">
+                                    <i class="fa-solid fa-star"></i>
+                                    <span><strong>Tip:</strong> Take your time reading the consent form. It contains important information about data collection, your rights, and how to withdraw from the study.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="guide-step">
+                            <div class="step-number">
+                                <span>3</span>
+                            </div>
+                            <div class="step-content">
+                                <h3><i class="fa-solid fa-shield-halved"></i> Navigate to the Privacy Page</h3>
+                                <p>This is the core of your participation. In the privacy page, you'll use the <strong>Privacy Budget Slider</strong> to set your preferred privacy level:</p>
+                                <div class="privacy-levels-grid">
+                                    <div class="privacy-level-card level-low">
+                                        <div class="level-indicator">Low ε</div>
+                                        <h4>Maximum Privacy</h4>
+                                        <p>More noise added to your data, stronger privacy protection, but potential performance impacts</p>
+                                    </div>
+                                    <div class="privacy-level-card level-medium">
+                                        <div class="level-indicator">Medium ε</div>
+                                        <h4>Balanced Approach</h4>
+                                        <p>Moderate privacy protection with reasonable performance</p>
+                                    </div>
+                                    <div class="privacy-level-card level-high">
+                                        <div class="level-indicator">High ε</div>
+                                        <h4>Maximum Performance</h4>
+                                        <p>Minimal noise, better performance, but reduced privacy protection</p>
+                                    </div>
+                                </div>
+                                <div class="step-tip">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span><strong>Remember:</strong> There's no "correct" answer! We're interested in YOUR preferences and decision-making process. Choose what feels right to you.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="guide-step">
+                            <div class="step-number">
+                                <span>4</span>
+                            </div>
+                            <div class="step-content">
+                                <h3><i class="fas fa-eye"></i> Observe the Trade-offs</h3>
+                                <p>As you adjust your privacy settings, pay attention to how various aspects of the system respond:</p>
+                                <div class="tradeoff-indicators">
+                                    <div class="tradeoff-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <h4>Response Latency</h4>
+                                        <p>How quickly the system responds to your actions</p>
+                                    </div>
+                                    <div class="tradeoff-item">
+                                        <i class="fa-solid fa-certificate"></i>
+                                        <h4>CAPTCHA Frequency</h4>
+                                        <p>How often you'll encounter verification challenges</p>
+                                    </div>
+                                    <div class="tradeoff-item">
+                                        <i class="fa-solid fa-rectangle-ad"></i>
+                                        <h4>Ad Relevance</h4>
+                                        <p>How personalized your content recommendations are</p>
+                                    </div>
+                                    <div class="tradeoff-item">
+                                        <i class="fa-solid fa-network-wired"></i>
+                                        <h4>Network Accuracy</h4>
+                                        <p>The precision of data processing and predictions</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="guide-step">
+                            <div class="step-number">
+                                <span>5</span>
+                            </div>
+                            <div class="step-content">
+                                <h3><i class="fas fa-clipboard-list"></i> Complete the Privacy Form</h3>
+                                <p>After exploring the dashboard and making your privacy decisions, visit the <strong>Privacy Form</strong> page to provide feedback about your experience. This questionnaire helps us understand:</p>
+                                <ul class="guide-list">
+                                    <li>Your overall satisfaction with the privacy controls</li>
+                                    <li>Which factors influenced your decisions most</li>
+                                    <li>Your understanding of the privacy-utility trade-offs</li>
+                                    <li>Suggestions for improving privacy interfaces</li>
+                                </ul>
+                                <div class="step-tip">
+                                    <i class="fa-solid fa-star"></i>
+                                    <span><strong>Tip:</strong> Take your time reading the consent form. It contains important information about data collection, your rights, and how to withdraw from the study.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 6 -->
+                        <div class="guide-step">
+                            <div class="step-number">
+                                <span>6</span>
+                            </div>
+                            <div class="step-content">
+                                <h3><i class="fas fa-comments"></i> Interact with Zynex AI (Optional)</h3>
+                                <p>For additional support, you can use the <strong>Zynex AI</strong> chatbot available in the bottom sidebar. The AI assistant can:</p>
+                                <ul class="guide-list">
+                                    <li>Answer questions about how the dashboard works</li>
+                                    <li>Explain privacy concepts in simple terms</li>
+                                    <li>Help troubleshoot any issues you encounter</li>
+                                    <li>Provide guidance on interpreting the metrics</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Important Information Section -->
+                <div class="research-objectives-section">
+                    <div class="section-header">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h2>Important Information</h2>
+                    </div>
+                    <div class="objectives-grid">
+                        <div class="objective-card">
+                            <div class="objective-icon-large">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <h3>Your Privacy is Protected</h3>
+                            <p>All data collected during this study is anonymized and encrypted. Your personal information is never shared with third parties, and you can view our privacy policy at any time in the sidebar.</p>
+                        </div>
+                        <div class="objective-card">
+                            <div class="objective-icon-large">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3>Estimated Time</h3>
+                            <p>The entire study takes approximately <strong>15-20 minutes</strong> to complete. You can take breaks and return to the dashboard at any time—your progress is automatically saved.</p>
+                        </div>
+                        <div class="objective-card">
+                            <div class="objective-icon-large">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h3>Data Collection</h3>
+                            <p>We collect: epsilon values you select, time spent on each setting, interaction patterns, and survey responses. We do NOT collect: personal identifying information, browsing history, or data from outside this platform.</p>
+                        </div>
+                        <div class="objective-card">
+                            <div class="objective-icon-large">
+                                <i class="fas fa-door-open"></i>
+                            </div>
+                            <h3>Right to Withdraw</h3>
+                            <p>You can withdraw from the study at any time without penalty. Simply close the browser or contact the research team using the information provided in the consent form.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tips Box Container (Separate) -->
+                <div class="tips-box-container">
+                    <!-- Tips for Success Section -->
+                    <div class="tips-section">
+                        <div class="section-header">
+                            <i class="fas fa-star"></i>
+                            <h2>Tips for a Great Experience</h2>
+                        </div>
+                        <div class="tips-grid">
+                            <div class="tip-card">
+                                <div class="tip-icon"><i class="fa-solid fa-user-plus"></i></div>
+                                <h4>Be Authentic</h4>
+                                <p>Make decisions that reflect your true preferences. There are no right or wrong answers—we want to understand how YOU think about privacy.</p>
+                            </div>
+                            <div class="tip-card">
+                                <div class="tip-icon"><i class="fa-solid fa-hourglass"></i></div>
+                                <h4>Take Your Time</h4>
+                                <p>Don't rush through the experience. Spend time exploring different privacy levels and observing how they affect the system.</p>
+                            </div>
+                            <div class="tip-card">
+                                <div class="tip-icon"><i class="fas fa-magnifying-glass"></i></div>
+                                <h4>Explore Features</h4>
+                                <p>Click around and explore all the features. The more you interact with the dashboard, the more valuable your contribution to the research.</p>
+                            </div>
+                            <div class="tip-card">
+                                <div class="tip-icon"><i class="fas fa-comment-dots"></i></div>
+                                <h4>Provide Feedback</h4>
+                                <p>Your thoughts in the Privacy Form are incredibly valuable. Be detailed and honest about your experience and suggestions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Getting Started Box Container (Separate) -->
+                <div class="getting-started-box-container">
+                    <!-- Getting Started CTA -->
+                    <div class="getting-started-section">
+                        <div class="cta-box">
+                            <h2><i class="fa-solid fa-stairs"></i> Ready to Get Started?</h2>
+                            <p>Now that you understand how the Zynex Dashboard works, it's time to begin your participation!</p>
+                            <div class="cta-buttons">
+                                <a href="#" class="cta-button primary-button" data-page="consent">
+                                    <i class="fas fa-file-signature"></i>
+                                    Complete Consent Form
+                                </a>
+                                <a href="#" class="cta-button secondary-button" data-page="overview">
+                                    <i class="fas fa-circle-info"></i>
+                                    View Research Overview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Need Help Section -->
+                <div class="help-footer">
+                    <div class="help-content">
+                        <i class="fas fa-question-circle"></i>
+                        <div>
+                            <h4>Need Help?</h4>
+                            <p>If you have questions or encounter any issues, please use the <strong>Zynex AI</strong> chatbot or refer to the <strong>Logs</strong> page for technical information. For urgent matters, contact information is available in the consent form.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-content" id="overview-page">
+            <div class="overview-container">
+                <!-- Research Overview Header -->
+                <div class="research-overview-header">
+                    <div class="overview-badge">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </div>
+                    <div class="overview-text">
+                        <h2 class="overview-title">Research Overview</h2>
+                        <p class="overview-description">Outlines the focus and key buildups of the research study</p>
+                    </div>
+                </div>
+
                 <!-- Research Study Header -->
                 <div class="research-study-header">
                     <h1 class="research-title">Exploring User Decisions in Privacy–Utility Trade-offs with the Zynex Dashboard</h1>
@@ -101,6 +421,44 @@
                         </div>
                         <div class="meta-item">
                             <i class="fas fa-calendar"></i> October 2025
+                        </div>
+                    </div>
+                </div>
+
+                  <!-- Privacy Threat Model Section -->
+                <div class="privacy-threat-section">
+                    <div class="section-header">
+                        <i class="fas fa-user-shield"></i>
+                        <h2>Privacy Threat Model (Hypothethical)</h2>
+                    </div>
+                    
+                    <div class="threat-intro">
+                        <h3>Simplified Threat Scenario</h3>
+                        <p>The study models a <strong style="color: cyan;">simplified privacy threat model</strong> to evaluate how participants balance perceived privacy risks against system functionality and convenience.</p>
+                    </div>
+
+                    <div class="threat-grid">
+                        <div class="threat-card">
+                            <div class="threat-icon adversary">
+                                <i class="fa-brands fa-meta"></i>
+                            </div>
+                            <h3>Who is the Adversary?</h3>
+                            <p> <strong>Meta (Facebook’s parent company)</strong>, a large-scale data aggregator that collects and analyses user information to personalise ads and optimise engagement.</p>
+                        </div>
+                        <div class="threat-card">
+                            <div class="threat-icon attack">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+                            <h3>What is the Attack Vector?</h3>
+                            <p> <strong>Passive profiling</strong> through metadata analysis, where user behaviour (such as browsing patterns or engagement data) is monitored without explicit consent.</p>
+                        </div>
+                    </div>
+
+                    <div class="model-linkage">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <div>
+                            <h4>Connection to Study</h4>
+                            <p>The privacy threat model <strong style="color: lightgreen;">aligns with the study’s focus</strong> by simulating a realistic scenario where users must balance privacy and system performance. Using Meta as the adversary and passive metadata profiling as the attack vector reflects real-world data collection practices, allowing the study to examine how individuals adjust their privacy preferences in response to perceived risks and usability changes.</p>
                         </div>
                     </div>
                 </div>
@@ -152,14 +510,14 @@
                             <p>Participants adjust the privacy budget (ε) while observing real-time changes in performance indicators.</p>
                         </div>
                         <div class="method-card">
-                            <i class="fas fa-chart-line"></i>
-                            <h3>Performance Metrics</h3>
-                            <p>System tracks latency, CAPTCHA frequency, ad relevance, and network accuracy based on ε selections.</p>
-                        </div>
-                        <div class="method-card">
                             <i class="fas fa-database"></i>
                             <h3>Data Collection</h3>
                             <p>Logs ε selections, decision time, and trade-off frequency for quantitative and qualitative analysis.</p>
+                        </div>
+                        <div class="method-card">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Data Analysis</h3>
+                            <p>System tracks latency, CAPTCHA frequency, ad relevance, and network accuracy based on ε selections.</p>
                         </div>
                     </div>
 
@@ -172,40 +530,33 @@
                     </div>
                 </div>
 
-                <!-- Privacy Threat Model Section -->
-                <div class="privacy-threat-section">
+                <!-- Study Limitations Section -->
+                <div class="study-limitations-section">
                     <div class="section-header">
-                        <i class="fas fa-user-shield"></i>
-                        <h2>Privacy Threat Model (Hypothethical)</h2>
+                        <i class="fa-solid fa-hand"></i>
+                        <h2>Research Limitations</h2>
                     </div>
-                    
-                    <div class="threat-intro">
-                        <h3>Simplified Threat Scenario</h3>
-                        <p>The study models a <strong style="color: cyan;">simplified privacy threat model</strong> to evaluate how participants balance perceived privacy risks against system functionality and convenience.</p>
-                    </div>
-
-                    <div class="threat-grid">
-                        <div class="threat-card">
-                            <div class="threat-icon adversary">
-                                <i class="fa-brands fa-meta"></i>
+                    <div class="limitations-container">
+                        <div class="limitation-box">
+                            <div class="limitation-icon">
+                                <i class="fa-solid fa-user-secret"></i>
                             </div>
-                            <h3>Who is the Adversary?</h3>
-                            <p> <strong>Meta (Facebook’s parent company)</strong>, a large-scale data aggregator that collects and analyses user information to personalise ads and optimise engagement.</p>
+                            <h3>Simplified Threat Model</h3>
+                            <p>The privacy threat model is centred on one adversary (Meta) and a single attack vector (passive metadata profiling). This omits other potential privacy risks such as data breaches or algorithmic inference.</p>
                         </div>
-                        <div class="threat-card">
-                            <div class="threat-icon attack">
-                                <i class="fa-solid fa-bullseye"></i>
+                        <div class="limitation-box">
+                            <div class="limitation-icon">
+                                <i class="fas fa-flask"></i>
                             </div>
-                            <h3>What is the Attack Vector?</h3>
-                            <p> <strong>Passive profiling</strong> through metadata analysis, where user behaviour (such as browsing patterns or engagement data) is monitored without explicit consent.</p>
+                            <h3>Simulated Environment</h3>
+                            <p>The study provides a controlled experimental setting that may not fully replicate real-world privacy scenarios. Participants' decisions might differ when facing actual privacy threats versus simulated ones.</p>
                         </div>
-                    </div>
-
-                    <div class="model-linkage">
-                        <i class="fa-solid fa-circle-check"></i>
-                        <div>
-                            <h4>Connection to Study</h4>
-                            <p>The privacy threat model <strong style="color: lightgreen;">aligns with the study’s focus</strong> by simulating a realistic scenario where users must balance privacy and system performance. Using Meta as the adversary and passive metadata profiling as the attack vector reflects real-world data collection practices, allowing the study to examine how individuals adjust their privacy preferences in response to perceived risks and usability changes.</p>
+                        <div class="limitation-box">
+                            <div class="limitation-icon">
+                                <i class="fa-solid fa-user-group"></i>
+                            </div>
+                            <h3>Participant Behavioural Validity</h3>
+                            <p>As the study uses a user-based approach, participants’ privacy budget (ε) choices may not fully reflect real-world behaviour due to differences in technical understanding, motivation, or context.</p>
                         </div>
                     </div>
                 </div>
@@ -219,10 +570,13 @@
             <div class="features-page-container">
                 <!-- Features Header Box -->
                 <div class="features-header-box">
-                    <h2 class="features-page-title">
-                        <i class="fa-solid fa-table-cells-large"></i> Dashboard Features
-                    </h2>
-                    <p class="features-subtitle">Shows a list of key features in the website</p>
+                    <div class="features-badge">
+                        <i class="fa-solid fa-table-cells-large"></i>
+                    </div>
+                    <div class="features-text">
+                        <h2 class="features-page-title">Dashboard Features</h2>
+                        <p class="features-subtitle">Shows a list of key features in the website</p>
+                    </div>
                 </div>
 
                 <!-- Large White Container for All Features -->
@@ -283,7 +637,7 @@
                             <i class="fas fa-shield-alt"></i>
                         </div>
                         <h3 class="feature-title">Privacy</h3>
-                        <p class="feature-description">Provides an interactive epsilon slider (0.1 - 5.0) and shows real-time privacy utility trade-offs.</p>
+                        <p class="feature-description">Provides an interactive epsilon slider and shows real-time privacy utility trade-offs.</p>
                         <div class="feature-tags">
                             <span class="feature-tag">Privacy</span>
                             <span class="feature-tag">Performance</span>
@@ -345,6 +699,17 @@
         </div>
         <!-- Home page with heatmap and charts - active by default -->
         <div class="page-content" id="home-page">
+            <!-- Home Page Header -->
+            <div class="page-header">
+                <div class="page-badge">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="page-text">
+                    <h2 class="page-title">Home Dashboard</h2>
+                    <p class="page-description">Interactive heatmap and user activity analytics</p>
+                </div>
+            </div>
+
             <!-- Heatmap Container -->
             <div class="heatmap-container">
                 <h2 class="heatmap-title">User Interaction Heatmap (Volume)</h2>
@@ -489,6 +854,17 @@
 
         <!-- Privacy page -->
         <div class="page-content" id="privacy-page">
+            <!-- Privacy Page Header -->
+            <div class="page-header">
+                <div class="page-badge">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="page-text">
+                    <h2 class="page-title">Privacy Controls</h2>
+                    <p class="page-description">Adjust your privacy budget and system settings</p>
+                </div>
+            </div>
+
             <div class="privacy-layout">
                 <!-- Privacy Budget Control Card -->
                 <div class="privacy-card">
@@ -609,6 +985,17 @@
 
         <!-- Calendar page -->
         <div class="page-content" id="calendar-page">
+            <!-- Calendar Page Header -->
+            <div class="page-header">
+                <div class="page-badge">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <div class="page-text">
+                    <h2 class="page-title">Calendar</h2>
+                    <p class="page-description">Shows the day, month and year in real-time</p>
+                </div>
+            </div>
+
             <div class="calendar-container">
                 <!-- Date Selector -->
                 <div class="date-selector" id="date-selector">
@@ -665,14 +1052,14 @@
             <div class="notifications-container">
                 <!-- Notifications Header -->
                 <div class="notifications-header">
-                    <div class="notifications-title-section">
-                        <div class="notification-bell-badge">
-                            <i class="fas fa-bell"></i>
-                            <span class="bell-count" id="bell-count">108</span>
-                        </div>
-                        <h2 class="notifications-main-title">Notifications Centre</h2>
+                    <div class="notification-badge-wrapper">
+                        <i class="fas fa-bell"></i>
+                        <span class="bell-count" id="bell-count">108</span>
                     </div>
-                    <p class="notifications-subtitle">Tracks all activity and system events</p>
+                    <div class="notification-text">
+                        <h2 class="notifications-main-title">Notifications Centre</h2>
+                        <p class="notifications-subtitle">Tracks all activity and system events</p>
+                    </div>
                 </div>
 
                 <!-- Filter Buttons -->
@@ -699,189 +1086,199 @@
         <!-- Consent Form page -->
         <div class="page-content" id="consent-page">
             <div class="consent-container">
-            <!-- Header -->
-            <div class="consent-header">
-            <i class="fa-solid fa-list-check"></i>
-                <h1>Study Consent Form</h1>
-            <p>Please review the information below and provide your informed consent to participate in this research study.</p>
-        </div>
-
-        <!-- Study Purpose Section -->
-        <div class="consent-section">
-            <div class="section-title">
-                <i class="fa-solid fa-book"></i>
-                <span>Study Purpose</span>
-            </div>
-            <div class="section-content">
-                  <p>
-                    The purpose of this study is to explore how individuals make real-time decisions 
-                    when confronted with explicit <strong style="color: cyan;">privacy–utility trade-offs</strong>. 
-                    By using the Zynex dashboard, participants will be given the opportunity to adjust 
-                    their privacy preferences (ε values from differential privacy), while directly 
-                    experiencing consequences such as changes in latency, CAPTCHA frequency and ad relevance.
-                    This setup will help uncover how users balance privacy protection against system usability 
-                    and performance.
-                </p>
-            </div>
-        </div>
-
-        <!-- Procedures & Timeline Section -->
-        <div class="consent-section">
-            <div class="section-title">
-                <i class="fa-solid fa-users"></i>
-                <span>Participant Activities</span>
-            </div>
-            <div class="section-content">
-                <p>If you agree to participate in this study, you will be asked/able to:</p>
-                <ul class="bullet-list">
-                    <li>
-                        <i class="fas fa-circle"></i>
-                        <span>Interact with the Zynex dashboard and adjust privacy settings using the epsilon slider</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-circle"></i>
-                        <span>Complete a participation consent form and a post questionnaire on your dashboard experience and privacy preferences</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-circle"></i>
-                        <span>Navigate through different sections of the website (excluding the logs and notifications sections)</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-circle"></i>
-                        <span>Interact with the Zynex AI chatbot to experience a general-purpose conversational model</span>
-                    </li>
-                </ul>
-                <div class="duration-badge">
-                    <i class="fas fa-clock"></i>
-                    <span>There is no fixed time limit — users may explore and interact with the dashboard for as long as they wish</span>
+            <!-- Section Header -->
+            <div class="page-header">
+                <div class="page-badge">
+                    <i class="fas fa-file-signature"></i>
+                </div>
+                <div class="page-text">
+                    <h2 class="page-title">Study Consent Form</h2>
+                    <p class="page-description">Please review the information below and provide your informed consent to participate in this research study.</p>
                 </div>
             </div>
-        </div>
 
-        <!-- Your Rights Section -->
-        <div class="consent-section">
-            <div class="section-title">
-                <i class="fas fa-user-shield"></i>
-                <span>Your Rights</span>
-            </div>
-            <div class="section-content">
-                <div class="rights-highlight">
-                    <h4>Right to Withdraw:</h4>
-                    <p>You have the right to withdraw from this study at any time without penalty or consequence. Simply close the browser or contact the student/supervisor using the information provided below.</p>
-                </div>
-
-                <div class="contact-info">
-                    <h4>Student/Supervisor Contact:</h4>
-                    <div class="contact-item">
-                        <strong>Student/Supervisor Email:</strong>
-                        <span>zctzkng@ucl.ac.uk, i.becker@ucl.ac.uk</span>
+            <!-- Single Large Container for All Sections -->
+            <div class="consent-main-section">
+                <!-- Study Purpose Section -->
+                <div class="consent-subsection">
+                    <div class="section-title">
+                        <i class="fa-solid fa-book"></i>
+                        <span>Study Purpose</span>
                     </div>
-                    <div class="contact-item">
-                        <strong>Department/Faculty:</strong>
-                        <span>Department of Security and Crime Science, Faculty of Engineering Sciences</span>
+                    <div class="section-content">
+                        <p>
+                            The purpose of this study is to explore how individuals make real-time decisions 
+                            when confronted with explicit <strong style="color: cyan;">privacy–utility trade-offs</strong>. 
+                            By using the Zynex dashboard, participants will be given the opportunity to adjust 
+                            their privacy preferences (ε values from differential privacy), while directly 
+                            experiencing consequences such as changes in latency, CAPTCHA frequency and ad relevance.
+                            This setup will help uncover how users balance privacy protection against system usability 
+                            and performance.
+                        </p>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Data Handling & Privacy Section -->
-        <div class="consent-section">
-            <div class="section-title">
-                <i class="fas fa-lock"></i>
-                <span>Data Handling & Privacy</span>
-            </div>
-            <div class="section-content">
-                <p>Your privacy and data security are our top priorities. Here's how we handle your data:</p>
-                <ul class="bullet-list">
-                    <li>
-                        <i class="fas fa-circle"></i>
-                        <span><strong>Anonymization:</strong> All collected data will be anonymized and no personally identifiable information will be stored</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-circle"></i>
-                        <span><strong>Secure Storage:</strong> The collected data will be stored in the logs section with restricted access limited to the student and supervisor</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-circle"></i>
-                        <span><strong>Usage Limitations:</strong> The collected data will only be used for the thesis writeup and data analysis</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-circle"></i>
-                        <span><strong>Data Retention:</strong> The data collected will be kept until the end of the course, then securely deleted</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-circle"></i>
-                        <span><strong>Third-Party Sharing:</strong> Your data will never be sold or shared with third parties for commercial purposes</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Informed Consent Agreement Section -->
-        <div class="agreement-section">
-            <div class="agreement-header">
-                <h2>Informed Consent Agreement</h2>
-                <p>Please confirm your understanding and agreement by checking all boxes below:</p>
-            </div>
-
-            <div class="checkbox-item" onclick="toggleCheckbox(1)">
-                <input type="checkbox" id="check1">
-                <label for="check1">I have read and understood the purpose of this research study</label>
-            </div>
-
-            <div class="checkbox-item" onclick="toggleCheckbox(2)">
-                <input type="checkbox" id="check2">
-                <label for="check2">I understand the procedures and what will be required of me during the research study</label>
-            </div>
-
-            <div class="checkbox-item" onclick="toggleCheckbox(3)">
-                <input type="checkbox" id="check3">
-                <label for="check3">I understand that I can withdraw from the research study at any time without penalty</label>
-            </div>
-
-            <div class="checkbox-item" onclick="toggleCheckbox(4)">
-                <input type="checkbox" id="check4">
-                <label for="check4">I understand how my data will be collected, stored and used for this research study</label>
-            </div>
-
-            <div class="checkbox-item" onclick="toggleCheckbox(5)">
-                <input type="checkbox" id="check5">
-                <label for="check5">My age is at least 18 years or above and I voluntarily agree to participate in this research study</label>
-            </div>
-
-            <!-- Progress Indicator -->
-            <div class="progress-container">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
+                <!-- Procedures & Timeline Section -->
+                <div class="consent-subsection">
+                    <div class="section-title">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Participant Activities</span>
+                    </div>
+                    <div class="section-content">
+                        <p>If you agree to participate in this study, you will be asked/able to:</p>
+                        <ul class="bullet-list">
+                            <li>
+                                <i class="fas fa-circle"></i>
+                                <span>Interact with the Zynex dashboard and adjust privacy settings using the epsilon slider</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-circle"></i>
+                                <span>Complete a participation consent form and a post questionnaire on your dashboard experience and privacy preferences</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-circle"></i>
+                                <span>Navigate through different sections of the website (excluding the logs and notifications sections)</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-circle"></i>
+                                <span>Interact with the Zynex AI chatbot to experience a general-purpose conversational model</span>
+                            </li>
+                        </ul>
+                        <div class="duration-badge">
+                            <i class="fas fa-clock"></i>
+                            <span>There is no fixed time limit — users may explore and interact with the dashboard for as long as they wish</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="progress-text" id="progressText">0 of 5 items confirmed</div>
-            </div>
 
-            <!-- Action Buttons -->
-            <div class="button-container">
-                <button class="btn btn-decline" onclick="declineConsent()">Decline & Exit</button>
-                <button class="btn btn-continue" id="continueBtn" disabled>Continue to Dashboard</button>
-            </div>
+                <!-- Your Rights Section -->
+                <div class="consent-subsection">
+                    <div class="section-title">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Your Rights</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="rights-highlight">
+                            <h4>Right to Withdraw:</h4>
+                            <p>You have the right to withdraw from this study at any time without penalty or consequence. Simply close the browser or contact the student/supervisor using the information provided below.</p>
+                        </div>
 
-            <!-- Footer Note -->
-            <div class="footer-note">
-                <i class="fas fa-info-circle"></i>
-                <span>You can withdraw your consent at any time by contacting the student/supervisor or closing the browser</span>
+                        <div class="contact-info">
+                            <h4>Student/Supervisor Contact:</h4>
+                            <div class="contact-item">
+                                <strong>Student/Supervisor Email:</strong>
+                                <span>zctzkng@ucl.ac.uk, i.becker@ucl.ac.uk</span>
+                            </div>
+                            <div class="contact-item">
+                                <strong>Department/Faculty:</strong>
+                                <span>Department of Security and Crime Science, Faculty of Engineering Sciences</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Handling & Privacy Section -->
+                <div class="consent-subsection">
+                    <div class="section-title">
+                        <i class="fas fa-lock"></i>
+                        <span>Data Handling & Privacy</span>
+                    </div>
+                    <div class="section-content">
+                        <p>Your privacy and data security are our top priorities. Here's how we handle your data:</p>
+                        <ul class="bullet-list">
+                            <li>
+                                <i class="fas fa-circle"></i>
+                                <span><strong>Anonymization:</strong> All collected data will be anonymized and no personally identifiable information will be stored</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-circle"></i>
+                                <span><strong>Secure Storage:</strong> The collected data will be stored in the logs section with restricted access limited to the student and supervisor</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-circle"></i>
+                                <span><strong>Usage Limitations:</strong> The collected data will only be used for the thesis writeup and data analysis</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-circle"></i>
+                                <span><strong>Data Retention:</strong> The data collected will be kept until the end of the course, then securely deleted</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-circle"></i>
+                                <span><strong>Third-Party Sharing:</strong> Your data will never be sold or shared with third parties for commercial purposes</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Informed Consent Agreement Section -->
+                <div class="consent-subsection">
+                    <div class="section-title">
+                        <i class="fas fa-file-signature"></i>
+                        <span>Informed Consent Agreement</span>
+                    </div>
+                    <div class="section-content">
+                        <p style="margin-bottom: 25px;">Please confirm your understanding and agreement by checking all boxes below:</p>
+
+                        <div class="checkbox-item" onclick="toggleCheckbox(1)">
+                            <input type="checkbox" id="check1">
+                            <label for="check1">I have read and understood the purpose of this research study</label>
+                        </div>
+
+                        <div class="checkbox-item" onclick="toggleCheckbox(2)">
+                            <input type="checkbox" id="check2">
+                            <label for="check2">I understand the procedures and what will be required of me during the research study</label>
+                        </div>
+
+                        <div class="checkbox-item" onclick="toggleCheckbox(3)">
+                            <input type="checkbox" id="check3">
+                            <label for="check3">I understand that I can withdraw from the research study at any time without penalty</label>
+                        </div>
+
+                        <div class="checkbox-item" onclick="toggleCheckbox(4)">
+                            <input type="checkbox" id="check4">
+                            <label for="check4">I understand how my data will be collected, stored and used for this research study</label>
+                        </div>
+
+                        <div class="checkbox-item" onclick="toggleCheckbox(5)">
+                            <input type="checkbox" id="check5">
+                            <label for="check5">My age is at least 18 years or above and I voluntarily agree to participate in this research study</label>
+                        </div>
+
+                        <!-- Progress Indicator -->
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <div class="progress-text" id="progressText">0 of 5 items confirmed</div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="button-container">
+                            <button class="btn btn-decline" onclick="declineConsent()">Decline & Exit</button>
+                            <button class="btn btn-continue" id="continueBtn" disabled>Continue to Dashboard</button>
+                        </div>
+
+                        <!-- Footer Note -->
+                        <div class="footer-note">
+                            <i class="fas fa-info-circle"></i>
+                            <span>You can withdraw your consent at any time by contacting the student/supervisor or closing the browser</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
     </div>
 </div>
 
         <!-- Logs page -->
         <div class="page-content" id="logs-page">
-            <!-- Session Logs Header -->
-            <div class="session-logs-header">
-                <div class="session-logs-icon">
+            <!-- Logs Page Header -->
+            <div class="page-header">
+                <div class="page-badge">
                     <i class="fas fa-file-alt"></i>
                 </div>
-                <div class="session-logs-text">
-                    <h2>Session Logs</h2>
-                    <p>View participant session data and activity history</p>
+                <div class="page-text">
+                    <h2 class="page-title">Session Logs</h2>
+                    <p class="page-description">Shows participant session data and activity history</p>
                 </div>
             </div>
 
@@ -937,14 +1334,14 @@
     <!-- Account page -->
     <div class="page-content" id="account-page">
         <div class="account-container">
-            <!-- Account Management Header -->
-            <div class="account-header">
-                <div class="account-icon">
+            <!-- Account Page Header -->
+            <div class="page-header">
+                <div class="page-badge">
                     <i class="fa-solid fa-user"></i>
                 </div>
-                <div class="account-header-text">
-                    <h1>Account Management</h1>
-                    <p>Manage your profile and session information</p>
+                <div class="page-text">
+                    <h2 class="page-title">Account Management</h2>
+                    <p class="page-description">Shows participant session information</p>
                 </div>
             </div>
 
@@ -994,17 +1391,17 @@
                     </div>
                     <div class="stat-item">
                         <div class="stat-icon">
-                            <i class="fas fa-chart-line"></i>
+                            <i class="fa-solid fa-arrows-rotate"></i>
                         </div>
                         <div class="stat-label">EPSILON CHANGES</div>
                         <div class="stat-value" id="epsilon-changes">0</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-icon">
-                            <i class="fas fa-user-shield"></i>
+                            <i class="fas fa-chart-line"></i>
                         </div>
-                        <div class="stat-label">PRIVACY SCORE</div>
-                        <div class="stat-value" id="privacy-score">0%</div>
+                        <div class="stat-label">AVERAGE EPSILON</div>
+                        <div class="stat-value" id="average-epsilon">0.00</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-icon">
@@ -1027,21 +1424,21 @@
                         <div class="activity-dot active"></div>
                         <div class="activity-content">
                             <h4 class="activity-title">Session Started</h4>
-                            <p class="activity-time">9:20:03 PM</p>
+                            <p class="activity-time" id="session-start-time">9:20:03 PM</p>
                         </div>
                     </div>
-                    <div class="activity-item">
-                        <div class="activity-dot pending"></div>
+                    <div class="activity-item" id="consent-activity">
+                        <div class="activity-dot pending" id="consent-dot"></div>
                         <div class="activity-content">
-                            <h4 class="activity-title">Consent Form Not Completed</h4>
-                            <p class="activity-time">Pending</p>
+                            <h4 class="activity-title" id="consent-title">Consent Form Not Completed</h4>
+                            <p class="activity-time" id="consent-time">Pending</p>
                         </div>
                     </div>
-                    <div class="activity-item">
-                        <div class="activity-dot pending"></div>
+                    <div class="activity-item" id="privacy-activity">
+                        <div class="activity-dot pending" id="privacy-dot"></div>
                         <div class="activity-content">
-                            <h4 class="activity-title">Privacy Form Not Completed</h4>
-                            <p class="activity-time">Pending</p>
+                            <h4 class="activity-title" id="privacy-title">Privacy Form Not Completed</h4>
+                            <p class="activity-time" id="privacy-time">Pending</p>
                         </div>
                     </div>
                 </div>
@@ -1050,7 +1447,7 @@
             <!-- Research Participation Card -->
             <div class="account-card">
                 <h3 class="account-card-title">
-                    <i class="fa-solid fa-award"></i> Research Participation
+                    <i class="fa-solid fa-award"></i> Study Participation
                 </h3>
                 
                 <div class="participation-grid">
@@ -1094,17 +1491,598 @@
                     <span class="footer-value" id="account-created">10/15/2025</span>
                 </div>
                 <div class="footer-item">
-                    <span class="footer-label">Last Updated:</span>
-                    <span class="footer-value" id="account-updated">Just now</span>
+                    <span class="footer-label">Session Started:</span>
+                    <span class="footer-value" id="session-started">Just now</span>
                 </div>
                 <div class="footer-item">
-                    <span class="footer-label">Data Collection:</span>
-                    <span class="footer-value footer-active">Active</span>
+                    <span class="footer-label">Session Ended:</span>
+                    <span class="footer-value" id="session-ended">Session Ongoing</span>
                 </div>
             </div>
         </div>
     </div>
     
+
+
+    <!-- Resources Page -->
+    <div class="page-content" id="resources-page">
+        <div class="resources-container">
+            <!-- Resources Header -->
+            <div class="resources-header">
+                <div class="resources-header-content">
+                    <i class="fa-solid fa-link"></i>
+                    <div class="resources-header-text">
+                        <h1>Resources</h1>
+                        <p>Curated collection of educational materials about differential privacy</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Tabs -->
+            <div class="resource-tabs">
+                <button class="resource-tab active" data-category="websites">
+                    <i class="fa-solid fa-globe"></i>
+                    <span>Websites & Online Resources</span>
+                </button>
+                <button class="resource-tab" data-category="papers">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Academic Papers & Publications</span>
+                </button>
+                <button class="resource-tab" data-category="news">
+                    <i class="fa-solid fa-newspaper"></i>
+                    <span>News & Articles</span>
+                </button>
+                <button class="resource-tab" data-category="videos">
+                    <i class="fa-solid fa-video"></i>
+                    <span>Educational Videos & Courses</span>
+                </button>
+                <button class="resource-tab" data-category="tools">
+                    <i class="fa-solid fa-code"></i>
+                    <span>Tools & Libraries</span>
+                </button>
+            </div>
+
+            <!-- Websites & Online Resources -->
+            <div class="resource-category active" id="category-websites">
+                <div class="category-header">
+                    <i class="fa-solid fa-globe"></i>
+                    <h2>Websites & Online Resources</h2>
+                </div>
+                <p class="category-description">Interactive websites and online tools for learning about differential privacy</p>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>Differential Privacy - Wikipedia <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>Comprehensive overview of differential privacy concepts, history, and applications</p>
+                    </div>
+                    <button class="resource-arrow" data-url="https://en.wikipedia.org/wiki/Differential_privacy">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>Harvard Privacy Tools Project <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>Open-source tools and resources for differential privacy from Harvard University</p>
+                    </div>
+                    <button class="resource-arrow" data-url="https://privacytools.seas.harvard.edu/">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>Microsoft Research - Differential Privacy <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>Research publications, tools, and case studies from Microsoft Research</p>
+                    </div>
+                    <button class="resource-arrow" data-url="https://www.microsoft.com/en-us/research/group/privacy-research-group/">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>NIST Privacy Framework <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>Government standards and guidelines for privacy-enhancing technologies</p>
+                    </div>
+                    <button class="resource-arrow" data-url="https://www.nist.gov/privacy-framework">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>OpenDP - Open Differential Privacy <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>Community-driven tools and libraries for implementing differential privacy</p>
+                    </div>
+                    <button class="resource-arrow" data-url="https://opendp.org/">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-stats">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Websites & Online Resources</span>
+                </div>
+            </div>
+
+            <!-- Academic Papers & Publications -->
+            <div class="resource-category" id="category-papers">
+                <div class="category-header">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h2>Academic Papers & Publications</h2>
+                </div>
+                <p class="category-description">Foundational research papers and academic publications</p>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>Differential Privacy: A Survey of Results <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>Comprehensive survey covering fundamental concepts and applications</p>
+                        <div class="resource-meta">
+                            <span><i class="fa-solid fa-user"></i> Cynthia Dwork</span>
+                            <span><i class="fa-solid fa-calendar"></i> 2008</span>
+                        </div>
+                    </div>
+                    <button class="resource-arrow" data-url="https://link.springer.com/chapter/10.1007/978-3-540-79228-4_1">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>The Algorithmic Foundations of Differential Privacy <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>Foundational textbook on differential privacy theory and algorithms</p>
+                        <div class="resource-meta">
+                            <span><i class="fa-solid fa-user"></i> Dwork & Roth</span>
+                            <span><i class="fa-solid fa-calendar"></i> 2014</span>
+                        </div>
+                    </div>
+                    <button class="resource-arrow" data-url="https://www.cis.upenn.edu/~aaroth/Papers/privacybook.pdf">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>Calibrating Noise to Sensitivity in Private Data Analysis <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>Seminal paper introducing the Laplace mechanism for differential privacy</p>
+                        <div class="resource-meta">
+                            <span><i class="fa-solid fa-user"></i> Dwork et al.</span>
+                            <span><i class="fa-solid fa-calendar"></i> 2006</span>
+                        </div>
+                    </div>
+                    <button class="resource-arrow" data-url="https://link.springer.com/chapter/10.1007/11681878_14">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>Deep Learning with Differential Privacy <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>Methods for training neural networks with privacy guarantees</p>
+                        <div class="resource-meta">
+                            <span><i class="fa-solid fa-user"></i> Abadi et al.</span>
+                            <span><i class="fa-solid fa-calendar"></i> 2016</span>
+                        </div>
+                    </div>
+                    <button class="resource-arrow" data-url="https://arxiv.org/abs/1607.00133">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>Local Differential Privacy: Tools and Challenges <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>Survey of techniques for local differential privacy implementation</p>
+                        <div class="resource-meta">
+                            <span><i class="fa-solid fa-user"></i> Wang et al.</span>
+                            <span><i class="fa-solid fa-calendar"></i> 2020</span>
+                        </div>
+                    </div>
+                    <button class="resource-arrow" data-url="https://arxiv.org/abs/2008.04030">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-stats">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Academic Papers & Publications</span>
+                </div>
+            </div>
+
+            <!-- News & Articles -->
+            <div class="resource-category" id="category-news">
+                <div class="category-header">
+                    <i class="fa-solid fa-newspaper"></i>
+                    <h2>News & Articles</h2>
+                </div>
+                <p class="category-description">Recent news, blog posts, and industry articles about privacy</p>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>Apple's Differential Privacy Deployment <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>How Apple uses differential privacy to protect user data at scale</p>
+                    </div>
+                    <button class="resource-arrow" data-url="https://www.apple.com/privacy/docs/Differential_Privacy_Overview.pdf">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>Google's RAPPOR: Privacy-Preserving Reporting <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>Technical blog post on Google's differential privacy implementation</p>
+                    </div>
+                    <button class="resource-arrow" data-url="https://research.google/pubs/pub42852/">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>US Census Bureau and Differential Privacy <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>How the 2020 Census uses differential privacy to protect respondent data</p>
+                    </div>
+                    <button class="resource-arrow" data-url="https://www.census.gov/programs-surveys/decennial-census/decade/2020/planning-management/process/disclosure-avoidance.html">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>WIRED: What Is Differential Privacy? <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>Accessible explanation of differential privacy for general audiences</p>
+                    </div>
+                    <button class="resource-arrow" data-url="https://www.wired.com/2016/06/apples-differential-privacy-collecting-data/">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>The Verge: Privacy Technology Explained <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>Overview of how tech companies implement privacy-preserving technologies</p>
+                    </div>
+                    <button class="resource-arrow" data-url="https://www.theverge.com/2016/6/13/11922772/apple-differential-privacy-ios-10-wwdc-2016">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-stats">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">News & Articles</span>
+                </div>
+            </div>
+
+            <!-- Educational Videos & Courses -->
+            <div class="resource-category" id="category-videos">
+                <div class="category-header">
+                    <i class="fa-solid fa-video"></i>
+                    <h2>Educational Videos & Courses</h2>
+                </div>
+                <p class="category-description">Video lectures, online courses, and educational content</p>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>Differential Privacy - Computerphile <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>Accessible video explanation of differential privacy fundamentals</p>
+                    </div>
+                    <button class="resource-arrow" data-url="https://www.youtube.com/watch?v=pT19VwBAqKA">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>Programming Differential Privacy Course <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>Free online course teaching practical differential privacy implementation</p>
+                    </div>
+                    <button class="resource-arrow" data-url="https://programming-dp.com/">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>MIT OpenCourseWare: Privacy in Machine Learning <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>Lecture series on privacy-preserving machine learning techniques</p>
+                    </div>
+                    <button class="resource-arrow" data-url="https://ocw.mit.edu/">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>Coursera: Privacy and Security in Data Science <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>Online course covering privacy techniques including differential privacy</p>
+                    </div>
+                    <button class="resource-arrow" data-url="https://www.coursera.org/">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-stats">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">Educational Videos & Courses</span>
+                </div>
+            </div>
+
+            <!-- Tools & Libraries -->
+            <div class="resource-category" id="category-tools">
+                <div class="category-header">
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Tools & Libraries</h2>
+                </div>
+                <p class="category-description">Software libraries and tools for implementing differential privacy</p>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>Google Differential Privacy Library <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>Open-source C++ and Go libraries for differential privacy</p>
+                    </div>
+                    <button class="resource-arrow" data-url="https://github.com/google/differential-privacy">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>IBM Diffprivlib <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>Python library for experimenting with differential privacy</p>
+                    </div>
+                    <button class="resource-arrow" data-url="https://github.com/IBM/differential-privacy-library">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>PyDP - Python Differential Privacy <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>Python bindings for Google's differential privacy library</p>
+                    </div>
+                    <button class="resource-arrow" data-url="https://github.com/OpenMined/PyDP">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>TensorFlow Privacy <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>Library for training machine learning models with differential privacy</p>
+                    </div>
+                    <button class="resource-arrow" data-url="https://github.com/tensorflow/privacy">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-content">
+                        <h3>Opacus - PyTorch Privacy <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                        <p>PyTorch library for training deep learning models with differential privacy</p>
+                    </div>
+                    <button class="resource-arrow" data-url="https://opacus.ai/">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="resource-stats">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Tools & Libraries</span>
+                </div>
+            </div>
+        </div>
+
+            <!-- Global Resource Statistics Tracker -->
+            <div class="global-resource-stats">
+                <div class="global-stat-item">
+                    <span class="global-stat-number" id="stat-websites">5</span>
+                    <span class="global-stat-label">Websites & Online Resources</span>
+                </div>
+                <div class="global-stat-item">
+                    <span class="global-stat-number" id="stat-papers">5</span>
+                    <span class="global-stat-label">Academic Papers & Publications</span>
+                </div>
+                <div class="global-stat-item">
+                    <span class="global-stat-number" id="stat-news">5</span>
+                    <span class="global-stat-label">News & Articles</span>
+                </div>
+                <div class="global-stat-item">
+                    <span class="global-stat-number" id="stat-videos">4</span>
+                    <span class="global-stat-label">Educational Videos & Courses</span>
+                </div>
+                <div class="global-stat-item">
+                    <span class="global-stat-number" id="stat-tools">5</span>
+                    <span class="global-stat-label">Tools & Libraries</span>
+                </div>
+            </div>
+    </div>
+    <!-- FAQ Page -->
+    <div class="page-content" id="faq-page">
+        <div class="faq-container">
+            <!-- FAQ Page Header -->
+            <div class="faq-page-header">
+                <div class="faq-header-content">
+                    <i class="fa-solid fa-question"></i>
+                    <div class="faq-header-text">
+                        <h1>FAQ (Frequently Asked Questions)</h1>
+                        <p>Predicated FAQs based on technical, study research</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About the Study Section -->
+            <div class="faq-section">
+                <div class="section-header">
+                    <i class="fa-solid fa-flask"></i>
+                    <h2>About the Study</h2>
+                </div>
+                <p class="section-description">Learn about the research study, its duration, and how your data is protected throughout the process.</p>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is the purpose of this research study?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>This study investigates how people make decisions about privacy settings in differential privacy systems. Your interactions help us understand the factors that influence privacy-utility tradeoff decisions.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long does the study take?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The study typically takes between 30-45 minutes to complete. This includes reading the consent form, exploring the dashboard features, adjusting privacy settings, and completing any required forms.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is my data confidential?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, all data collected during this study is kept strictly confidential. Your responses are anonymized and stored securely. Only aggregated, de-identified data will be used in research publications.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Privacy Settings Section -->
+            <div class="faq-section">
+                <div class="section-header">
+                    <i class="fa-solid fa-shield-alt"></i>
+                    <h2>Privacy Settings</h2>
+                </div>
+                <p class="section-description">Understand how the epsilon slider and privacy settings work in the differential privacy system.</p>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What does the epsilon slider control?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The epsilon (ε) slider controls your privacy budget in the differential privacy system. Lower values provide stronger privacy protection by adding more noise to your data, while higher values offer better system performance with less privacy protection.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What happens when I change privacy settings?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>When you adjust the epsilon slider, the system immediately recalculates the privacy-utility tradeoff. You'll see updated performance metrics showing how your choice affects both privacy protection and system accuracy.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How many times can I adjust my privacy settings?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can adjust your privacy settings as many times as you like during the study session. Each adjustment is recorded to help us understand your decision-making process.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Questions Section -->
+            <div class="faq-section">
+                <div class="section-header">
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Technical Questions</h2>
+                </div>
+                <p class="section-description">Technical details about differential privacy, privacy-utility tradeoffs, and performance metrics.</p>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is differential privacy?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Differential privacy is a mathematical framework that provides strong privacy guarantees by adding carefully calibrated noise to data. It ensures that the inclusion or exclusion of any single individual's data doesn't significantly affect the overall results.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How does the privacy-utility tradeoff work?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The privacy-utility tradeoff represents the balance between protecting individual privacy and maintaining system accuracy. More privacy (lower epsilon) means more noise and less accurate results, while less privacy (higher epsilon) provides more accurate results but weaker privacy protection.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What do the performance metrics mean?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The performance metrics display the accuracy and reliability of the system at your chosen privacy level. They include measures like query accuracy, noise levels, and the expected error rate in system responses.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data & Privacy Section -->
+            <div class="faq-section">
+                <div class="section-header">
+                    <i class="fa-solid fa-database"></i>
+                    <h2>Data & Privacy</h2>
+                </div>
+                <p class="section-description">Information about data collection, storage, and your rights as a research participant.</p>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What data is collected during the study?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We collect your epsilon slider adjustments, timestamps of interactions, decision patterns, and anonymized performance metrics. We do not collect personally identifiable information beyond your randomly assigned participant ID.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I withdraw from the study?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can withdraw from the study at any time without penalty. If you choose to withdraw, your data will be deleted from our systems upon request. Simply contact the research team at the email provided in the consent form.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How is my data stored?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>All data is stored on secure, encrypted servers with restricted access. Data is anonymized before storage and will be retained for the duration of the research project, after which it will be securely deleted or archived according to research ethics guidelines.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Still Have Questions Section -->
+            <div class="faq-contact-section">
+                <div class="section-header">
+                    <i class="fa-solid fa-envelope"></i>
+                    <h2>Still Have Questions?</h2>
+                </div>
+                <p class="contact-description">If you have additional questions not covered in this FAQ, please contact the research team:</p>
+                
+                <h3 class="contact-team">Research Team: <span>SECU0053 Security and Crime Science Research Project</span></h3>
+                <div class="contact-detail">
+                    <i class="fa-solid fa-at"></i>
+                    <span>Email: research@zynex.study</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- CAPTCHA Modal -->
     <div class="captcha-modal" id="captcha-modal">
         <div class="captcha-modal-content">
